@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<model name="FIGHTERMODEL" as_class="FighterProxy" value="2004" desc="战斗模块">
+  <command en_name="GC_FIGHT_INIT" cn_name="推送" value="1001" direction="Server">
+    <param name="mapId" type="int" size="4" remark="">场景实例ID</param>
+    <param name="mapModelId" type="int" size="4" remark="">场景原形ID</param>
+    <param name="fightType" type="byte" size="1" remark="">战斗类型(PVP征伐战 1)</param>
+    <param name="campInitList" type="listCampInit" size="2" remark="" text="阵营列表">
+      <param name="campId" type="byte" size="1" remark="">阵营号</param>
+    </param>
+    <param name="controlInitList" type="listControlInit" size="2" remark="" text="控制者列表">
+      <param name="controlId" type="int" size="4" remark="">控制对象ID</param>
+      <param name="campId" type="byte" size="1" remark="">阵营号</param>
+      <param name="controlType" type="byte" size="1" remark="">控制者类型（0 玩家, 1AI）</param>
+      <param name="playerId" type="long" size="8" remark="">角色ID</param>
+      <param name="playerName" type="String" size="20" remark="">角色名称</param>
+      <param name="aiId" type="int" size="4" remark="">AI的ID</param>
+      <param name="generalId" type="int" size="4" remark="">攻击对象ID</param>
+      <param name="centerX" type="float" size="4" remark="">初始屏幕中心x</param>
+      <param name="centerY" type="float" size="4" remark="">初始屏幕中心y</param>
+    </param>
+  </command>
+  <command en_name="GC_ADD_CONTROL" cn_name="推送" value="1002" direction="Server">
+    <param name="controlId" type="int" size="4" remark="">控制对象ID</param>
+    <param name="campId" type="byte" size="1" remark="">阵营号</param>
+    <param name="controlType" type="byte" size="1" remark="">控制者类型（0 玩家, 1AI）</param>
+    <param name="playerId" type="long" size="8" remark="">角色ID</param>
+    <param name="playerName" type="String" size="20" remark="">角色名称</param>
+    <param name="aiId" type="int" size="4" remark="">AI的ID</param>
+    <param name="generalId" type="int" size="4" remark="">攻击对象ID</param>
+    <param name="centerX" type="float" size="4" remark="">初始屏幕中心x</param>
+    <param name="centerY" type="float" size="4" remark="">初始屏幕中心y</param>
+  </command>
+  <command en_name="GC_CASE_SKILL" cn_name="推送" value="1003" direction="Server">
+    <param name="skillId" type="int" size="4" remark="">技能动态ID</param>
+    <param name="skillModelId" type="int" size="4" remark="">技能原形ID</param>
+    <param name="attackId" type="int" size="4" remark="">攻击对象ID</param>
+    <param name="targetControlId" type="int" size="4" remark="">目标控制者对象ID</param>
+    <param name="targetVisualId" type="int" size="4" remark="">目标可视对象ID</param>
+    <param name="targetX" type="float" size="4" remark="">目标x</param>
+    <param name="targetY" type="float" size="4" remark="">目标y</param>
+    <param name="dX" type="float" size="4" remark="">方向x</param>
+    <param name="dY" type="float" size="4" remark="">方向y</param>
+  </command>
+  <command en_name="CG_CASE_ATTACK" cn_name="接收" value="1004" direction="Client">
+    <param name="attackId" type="int" size="4" remark="">攻击来源可视对象ID</param>
+    <param name="targetId" type="int" size="4" remark="">目标可视对象ID</param>
+    <param name="dX" type="float" size="4" remark="">方向x</param>
+    <param name="dY" type="float" size="4" remark="">方向y</param>
+  </command>
+  <command en_name="GC_CASE_ATTACK" cn_name="返回" value="1005" direction="Server">
+    <param name="attackId" type="int" size="4" remark="">攻击来源可视对象ID</param>
+    <param name="targetId" type="int" size="4" remark="">目标可视对象ID</param>
+    <param name="dX" type="float" size="4" remark="">方向x</param>
+    <param name="dY" type="float" size="4" remark="">方向y</param>
+  </command>
+  <command en_name="CG_CASE_CARD" cn_name="接收" value="1006" direction="Client">
+    <param name="cardId" type="int" size="4" remark="">卡牌动态ID</param>
+    <param name="targetControlId" type="int" size="4" remark="">目标控制者对象ID</param>
+    <param name="targetVisualId" type="int" size="4" remark="">目标可视对象ID</param>
+    <param name="targetX" type="float" size="4" remark="">目标x</param>
+    <param name="targetY" type="float" size="4" remark="">目标y</param>
+    <param name="dX" type="float" size="4" remark="">方向x</param>
+    <param name="dY" type="float" size="4" remark="">方向y</param>
+  </command>
+  <command en_name="GC_CASE_CARD" cn_name="返回" value="1007" direction="Server">
+    <param name="cardId" type="int" size="4" remark="">卡牌动态ID</param>
+  </command>
+  <command en_name="CG_CASE_GENERAL" cn_name="接收" value="1008" direction="Client">
+    <param name="generalSkillId" type="int" size="4" remark="">将军技能ID</param>
+    <param name="targetControlId" type="int" size="4" remark="">目标控制者对象ID</param>
+    <param name="targetVisualId" type="int" size="4" remark="">目标可视对象ID</param>
+    <param name="targetX" type="float" size="4" remark="">目标x</param>
+    <param name="targetY" type="float" size="4" remark="">目标y</param>
+    <param name="dX" type="float" size="4" remark="">方向x</param>
+    <param name="dY" type="float" size="4" remark="">方向y</param>
+  </command>
+  <command en_name="GC_CASE_GENERAL" cn_name="返回" value="1009" direction="Server">
+    <param name="generalSkillId" type="int" size="4" remark="">将军技能ID</param>
+  </command>
+  <command en_name="CG_CASE_RELIEF" cn_name="接收" value="1010" direction="Client">
+    <param name="reliefSkillId" type="int" size="4" remark="">援军技能ID</param>
+    <param name="targetControlId" type="int" size="4" remark="">目标控制者对象ID</param>
+    <param name="targetVisualId" type="int" size="4" remark="">目标可视对象ID</param>
+    <param name="targetX" type="float" size="4" remark="">目标x</param>
+    <param name="targetY" type="float" size="4" remark="">目标y</param>
+    <param name="dX" type="float" size="4" remark="">方向x</param>
+    <param name="dY" type="float" size="4" remark="">方向y</param>
+  </command>
+  <command en_name="GC_CASE_RELIEF" cn_name="返回" value="1011" direction="Server">
+    <param name="reliefSkillId" type="int" size="4" remark="">援军技能ID</param>
+  </command>
+  <command en_name="GC_ADD_BUFF" cn_name="推送" value="1012" direction="Server">
+    <param name="attackId" type="int" size="4" remark="">攻击对象ID</param>
+    <param name="targetId" type="int" size="4" remark="">目标对象ID</param>
+    <param name="targetType" type="byte" size="1" remark="">目标类型(0 部队,1攻击者对象)</param>
+    <param name="skillId" type="int" size="4" remark="">动态技能ID</param>
+    <param name="effectId" type="int" size="4" remark="">动态效果ID</param>
+    <param name="effectModelId" type="int" size="4" remark="">效果原形ID</param>
+    <param name="beginTime" type="long" size="8" remark="">开始时间</param>
+    <param name="endTime" type="long" size="8" remark="">结束时间</param>
+  </command>
+  <command en_name="GC_REMOVE_BUFF" cn_name="推送" value="1013" direction="Server">
+    <param name="targetId" type="int" size="4" remark="">目标对象ID</param>
+    <param name="targetType" type="byte" size="1" remark="">目标类型(0 部队,1攻击者对象)</param>
+    <param name="effectId" type="int" size="4" remark="">动态效果ID</param>
+  </command>
+  <command en_name="GC_TRIGGER" cn_name="推送" value="1014" direction="Server">
+    <param name="targetId" type="int" size="4" remark="">目标对象ID</param>
+    <param name="targetType" type="byte" size="1" remark="">目标类型(0 部队,1攻击者对象)</param>
+    <param name="effectId" type="int" size="4" remark="">动态效果ID</param>
+  </command>
+  <command en_name="GC_TROOP_ATTR" cn_name="推送" value="1015" direction="Server">
+    <param name="visualId" type="int" size="4" remark="">场景可视对象ID</param>
+    <param name="troopAttrList" type="listTroopAttrs" size="2" remark="" text="部队战斗属性">
+      <param name="attrId" type="short" size="2" remark="">属性ID</param>
+      <param name="attrValue" type="int" size="4" remark="">属性值</param>
+    </param>
+  </command>
+  <command en_name="GC_SNEER" cn_name="推送" value="1016" direction="Server">
+    <param name="troopId" type="int" size="4" remark="">对象ID(中被嘲讽部队)</param>
+    <param name="sneerId" type="int" size="4" remark="">嘲讽目标对象ID(嘲讽部队)</param>
+  </command>
+  <command en_name="GC_TROOP_DIE" cn_name="推送" value="1017" direction="Server">
+    <param name="visualId" type="int" size="4" remark="">死亡可视对象ID</param>
+    <param name="skillId" type="int" size="4" remark="">动态技能ID</param>
+    <param name="effectModelId" type="int" size="4" remark="">效果原形ID</param>
+    <param name="dieType" type="byte" size="1" remark="">死亡类型</param>
+  </command>
+  <command en_name="GC_UPDATE_HP" cn_name="推送" value="1018" direction="Server">
+    <param name="visualId" type="int" size="4" remark="">可视对象ID</param>
+    <param name="skillId" type="int" size="4" remark="">动态技能ID</param>
+    <param name="effectModelId" type="int" size="4" remark="">效果原形ID</param>
+    <param name="updateType" type="byte" size="1" remark="">更新血量类型</param>
+    <param name="hp" type="int" size="4" remark="">更新后的血量</param>
+    <param name="maxHp" type="int" size="4" remark="">最大血量</param>
+    <param name="updateHp" type="int" size="4" remark="">此次更新的血量</param>
+  </command>
+  <command en_name="GC_INIT_CARDS" cn_name="推送" value="1019" direction="Server">
+    <param name="extractSize" type="int" size="4" remark="">可抽取卡牌数量</param>
+    <param name="fightCardList" type="listFightCard" size="2" remark="" text="战斗卡牌列表">
+      <param name="cardId" type="int" size="4" remark="">卡牌动态ID</param>
+      <param name="cardModelId" type="int" size="4" remark="">卡牌原形ID</param>
+      <param name="gemList" type="ilistGem" size="2" remark="" text="宝石列表">
+        <param name="position" type="byte" size="1" remark="">宝石位置</param>
+        <param name="gemType" type="byte" size="1" remark="">宝石类型</param>
+      </param>
+    </param>
+  </command>
+  <command en_name="GC_ADD_CARDS" cn_name="推送" value="1020" direction="Server">
+    <param name="extractSize" type="int" size="4" remark="">可抽取卡牌数量</param>
+    <param name="fightCardList" type="listFightCard" size="2" remark="" text="战斗卡牌列表">
+      <param name="cardId" type="int" size="4" remark="">卡牌动态ID</param>
+      <param name="cardModelId" type="int" size="4" remark="">卡牌原形ID</param>
+      <param name="gemList" type="ilistGem" size="2" remark="" text="宝石列表">
+        <param name="position" type="byte" size="1" remark="">宝石位置</param>
+        <param name="gemType" type="byte" size="1" remark="">宝石类型</param>
+      </param>
+    </param>
+  </command>
+  <command en_name="GC_INIT_GENERAL" cn_name="推送" value="1021" direction="Server">
+    <param name="generalId" type="int" size="4" remark="">将军原形ID</param>
+    <param name="fightGeneralList" type="listFightGeneral" size="2" remark="" text="战斗将军技能列表">
+      <param name="numb" type="byte" size="1" remark="">技能槽位置</param>
+      <param name="isOpen" type="byte" size="1" remark="">是否开启(0未开启，1开启)</param>
+      <param name="quality" type="byte" size="1" remark="">技能槽品质</param>
+      <param name="generalModelId" type="int" size="4" remark="">将军技能原形ID</param>
+    </param>
+  </command>
+  <command en_name="GC_INIT_RELIEF_SKILL" cn_name="推送" value="1022" direction="Server">
+    <param name="fightReliefList" type="listFightRelief" size="2" remark="" text="战斗援军技能列表">
+      <param name="generalModelId" type="int" size="4" remark="">将军技能原形ID</param>
+    </param>
+  </command>
+  <command en_name="GC_UPDATE_PROVISION" cn_name="推送" value="1023" direction="Server">
+    <param name="lastProvision" type="int" size="4" remark="">最终粮草</param>
+    <param name="updateProvision" type="int" size="4" remark="">更新的粮草(可以是负)</param>
+  </command>
+  <command en_name="CG_SURRENDER" cn_name="请求" value="1024" direction="Client"/>
+  <command en_name="GC_SURRENDER" cn_name="推送" value="1025" direction="Server">
+    <param name="controlId" type="int" size="4" remark="">控制对象ID</param>
+  </command>
+  <command en_name="GC_WIN" cn_name="推送" value="1026" direction="Server">
+    <param name="battle_id" type="int" size="4" remark="">战场ID</param>
+    <param name="win_camp" type="int" size="4" remark="">赢的阵营ID，平为-1</param>
+  </command>
+  <command en_name="CG_STAND_TO" cn_name="接收" value="1027" direction="Client"/>
+  <command en_name="GC_STAND_TO" cn_name="返回" value="1028" direction="Server"/>
+  <command en_name="GC_BEGIN_FIGHT" cn_name="推送" value="1029" direction="Server"/>
+  <command en_name="GC_READY_FIGHT_END" cn_name="推送" value="1030" direction="Server"/>
+  <command en_name="GC_SKILL_ADD_TROOP" cn_name="推送" value="1031" direction="Server">
+    <param name="visualId" type="int" size="4" remark="">部队ID</param>
+    <param name="x" type="float" size="4" remark="">X</param>
+    <param name="y" type="float" size="4" remark="">Y</param>
+    <param name="skillId" type="int" size="4" remark="">技能动态ID</param>
+    <param name="skillModelId" type="int" size="4" remark="">技能原形ID</param>
+    <param name="effectModelId" type="int" size="4" remark="">效果原形ID</param>
+  </command>
+</model>

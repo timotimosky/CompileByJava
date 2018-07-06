@@ -1,0 +1,15 @@
+native final class SappNull extends SappObject {
+
+	native [SappNull]create(one<?SappJava);
+	#字符串字面值  null 所对应的创建本地类SappNull方法。
+	
+	def toString(){
+		return "null";
+	}
+	#toStirng方法。
+	
+	def type(){
+		return "SappNull";
+	}
+	#类型字符串
+}

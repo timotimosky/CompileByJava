@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<model name="MISSIONMODEL" as_class="MissionProxy" value="2013" desc="任务模块">
+  <command en_name="CG_MISSION_MAIN" cn_name="请求" value="6570" direction="Client"/>
+  <command en_name="GC_MISSION_MAIN" cn_name="返回" value="6571" direction="Server">
+    <param name="mainTitle" type="string" size="20" remark="">主界面标题</param>
+    <param name="relicNum" type="byte" size="1" remark="">残片数量</param>
+    <param name="missionList" type="listMission" size="2" remark="" text="任务集合">
+      <param name="missionGuid" type="int" size="4" remark="">任务动态ID</param>
+      <param name="missionModelId" type="int" size="4" remark="">任务原型ID</param>
+      <param name="missionState" type="byte" size="1" remark="">任务状态</param>
+      <param name="conditionList" type="iListCondition" size="2" remark="" text="当前完成条件进度集合">
+        <param name="conditionModelId" type="int" size="4" remark="">条件原型ID</param>
+        <param name="conditionNum" type="int" size="4" remark="">条件完成数量</param>
+      </param>
+    </param>
+    <param name="relicList" type="listRelic" size="2" remark="" text="残片集合">
+      <param name="relicNumber" type="byte" size="1" remark="">残片编号</param>
+    </param>
+    <param name="finishMissionList" type="listFinishMission" size="2" remark="" text="已完成任务列表">
+      <param name="missionModleId" type="int" size="4" remark="">任务原型ID</param>
+    </param>
+  </command>
+  <command en_name="CG_MISSION_MAIN_SPAR" cn_name="请求" value="6572" direction="Client"/>
+  <command en_name="GC_MISSION_MAIN_SPAR" cn_name="返回" value="6573" direction="Server">
+    <param name="crcGuid" type="string" size="20" remark="">残片响应ModelId</param>
+  </command>
+  <command en_name="CG_MISSION_MAIN_PIECES" cn_name="请求" value="6574" direction="Client">
+    <param name="piecesNumber" type="byte" size="1" remark="">上古残片编号(1-10)</param>
+  </command>
+  <command en_name="GC_MISSION_MAIN_PIECES" cn_name="返回" value="6575" direction="Server">
+    <param name="piecesNumber" type="byte" size="1" remark="">上古残片编号(1-10)</param>
+    <param name="piecesGuid" type="int" size="4" remark="">上古残片响应ModelId</param>
+  </command>
+  <command en_name="CG_MISSION_TALK" cn_name="请求" value="6576" direction="Client">
+    <param name="missionGuid" type="int" size="4" remark="">任务动态ID</param>
+  </command>
+  <command en_name="GC_MISSION_TALK" cn_name="返回" value="6577" direction="Server">
+    <param name="missionGuid" type="int" size="4" remark="">任务动态ID</param>
+  </command>
+  <command en_name="GC_MISSION_PUSH_STATUS" cn_name="推送" value="6578" direction="Server">
+    <param name="missionGuid" type="int" size="4" remark="">任务动态ID</param>
+    <param name="missionStatus" type="byte" size="1" remark="">任务状态</param>
+  </command>
+  <command en_name="CG_MISSION_STATUS" cn_name="请求" value="6579" direction="Client">
+    <param name="missionGuid" type="int" size="4" remark="">任务动态ID</param>
+    <param name="missionStatus" type="byte" size="1" remark="">任务状态</param>
+  </command>
+  <command en_name="GC_MISSION_STATUS" cn_name="请求" value="6580" direction="Server">
+    <param name="missionGuid" type="int" size="4" remark="">任务动态ID</param>
+    <param name="missionStatus" type="byte" size="1" remark="">任务状态</param>
+  </command>
+  <command en_name="GC_MISSION_NEW" cn_name="推送" value="6581" direction="Server">
+    <param name="missionGuid" type="int" size="4" remark="">任务动态ID</param>
+    <param name="missionId" type="int" size="4" remark="">任务ModelId</param>
+    <param name="missionStatus" type="byte" size="1" remark="">任务状态</param>
+  </command>
+  <command en_name="GC_AWARD" cn_name="推送" value="6582" direction="Server">
+    <param name="experience" type="int" size="4" remark="">经验</param>
+    <param name="gold" type="int" size="4" remark="">金币</param>
+    <param name="diamond" type="int" size="4" remark="">钻石</param>
+    <param name="debris" type="int" size="4" remark="">碎片</param>
+    <param name="relic" type="int" size="4" remark="">残片</param>
+    <param name="generalList" type="listNewGeneral" size="2" remark="" text="主将列表">
+      <param name="generalGuid" type="int" size="4" remark="">主将动态ID</param>
+      <param name="generalModelId" type="int" size="4" remark="">主将原型ID</param>
+      <param name="skillHoleList" type="iListSkillHole" size="2" remark="" text="技能集合">
+        <param name="positionId" type="byte" size="1" remark="">位置ID</param>
+        <param name="skillId" type="int" size="4" remark="">技能ID</param>
+        <param name="quality" type="byte" size="1" remark="">技能孔品质</param>
+      </param>
+    </param>
+    <param name="cardList" type="listCard" size="2" remark="" text="卡牌列表">
+      <param name="cardModelId" type="int" size="4" remark="">卡牌原型ID</param>
+      <param name="cardGuid" type="long" size="8" remark="">卡牌动态ID</param>
+      <param name="gemList" type="ilistGem" size="2" remark="" text="宝石列表">
+        <param name="position" type="byte" size="1" remark="">宝石位置</param>
+        <param name="gemType" type="byte" size="1" remark="">宝石类型</param>
+      </param>
+    </param>
+  </command>
+  <command en_name="CG_MISSION_TEST" cn_name="请求" value="6583" direction="Client">
+    <param name="missionGuid" type="int" size="4" remark="">任务动态ID</param>
+  </command>
+  <command en_name="GC_MISSION_TEST" cn_name="返回" value="6584" direction="Server">
+    <param name="missionGuid" type="int" size="4" remark="">任务动态ID</param>
+  </command>
+</model>

@@ -1,0 +1,90 @@
+#Math类
+native class SappMath extends SappObject {
+	
+	native [?]abs(one<?SappDecimal||SappInteger);
+	#绝对值
+	native [SappDecimal]acos(one<?SappDecimal||SappInteger);
+	
+	native [SappDecimal]asin(one<?SappDecimal||SappInteger);
+	
+	native [SappDecimal]atan(one<?SappDecimal||SappInteger);
+	
+	native [SappDecimal]cos(one<?SappDecimal||SappInteger);
+	
+	native [SappDecimal]sin(one<?SappDecimal||SappInteger);
+	
+	native [SappDecimal]tan(one<?SappDecimal||SappInteger);
+	
+	native [SappDecimal]cbrt(one<?SappDecimal||SappInteger);
+	#立方根。
+	native [SappDecimal]ceil(one<?SappDecimal||SappInteger);
+	#返回最小的（最接近负无穷大）double 值，该值大于或等于参数，并且等于某个整数。
+	native [SappDecimal]cosh(one<?SappDecimal||SappInteger);
+	#返回 double 值的双曲线余弦。
+	native [SappDecimal]exp(one<?SappDecimal||SappInteger);
+	#返回欧拉数 e 的 double 次幂的值。
+	native [SappDecimal]expm1(one<?SappDecimal||SappInteger);
+	#返回 ex -1。
+	native [SappDecimal]floor(one<?SappDecimal||SappInteger);
+	#返回最大的（最接近正无穷大）double 值，该值小于或等于参数，并且等于某个整数。
+	native [SappDecimal]hypot(one<?SappDecimal||SappInteger,*one<?SappDecimal||SappInteger);
+	# 返回 sqrt(x2 +y2)，没有中间溢出或下溢。
+	native [SappDecimal]IEEEremainder(one<?SappDecimal||SappInteger,one<?SappDecimal||SappInteger);
+	#按照 IEEE 754 标准的规定，对两个参数进行余数运算。
+	native [SappDecimal]log(one<?SappDecimal||SappInteger);
+	#返回（底数是 e）double 值的自然对数。
+	native [SappDecimal]log10(one<?SappDecimal||SappInteger);
+	#返回 double 值的底数为 10 的对数。
+	native [SappDecimal]log1p(one<?SappDecimal||SappInteger);
+	#返回参数与 1 的和的自然对数。
+	def max(one,two){
+		if(one>=two){
+			return one;
+		}else{
+			return two;
+		}
+	}
+	
+	def min(one,two){
+		if(one<=two){
+			return one;
+		}else{
+			return two;
+		}
+	}
+	
+	native [SappDecimal]pow(one<?SappDecimal||SappInteger,one<?SappDecimal||SappInteger);
+	#返回第一个参数的第二个参数次幂的值。
+	
+	native [SappDecimal]random();
+	#返回带正号的 double 值，大于或等于 0.0，小于 1.0。
+	
+	native [SappDecimal]rint(one<?SappDecimal||SappInteger);
+	#返回其值最接近参数并且是整数的 double 值。
+	
+	native [SappDecimal]signum(one<?SappDecimal||SappInteger);
+	#返回参数的符号函数；如果参数是零，则返回零；如果参数大于零，则返回 1.0；如果参数小于零，则返回 -1.0。
+	
+	native [SappDecimal]sinh(one<?SappDecimal||SappInteger);
+	#返回 double 值的双曲线正弦。
+	
+	native [SappDecimal]tanh(one<?SappDecimal||SappInteger);
+	#返回 double 值的双曲线余弦。
+	
+	native [SappDecimal]sqrt(one<?SappDecimal||SappInteger);
+	#返回正确舍入的 double 值的正平方根。
+	
+	native [SappDecimal]toDegrees(one<?SappDecimal||SappInteger);
+	#将用弧度测量的角转换为近似相等的用度数测量的角。
+	
+	native [SappDecimal]toRadians(one<?SappDecimal||SappInteger);
+	#将用度数测量的角转换为近似相等的用弧度测量的角。
+	
+	native [SappDecimal]ulp(one<?SappDecimal||SappInteger);
+	#返回参数的 ulp 大小。
+	
+	native [SappDecimal]getPI();
+	#PI
+	
+	native [SappDecimal]getE();
+}

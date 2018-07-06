@@ -1,0 +1,51 @@
+#Hash表。 字符串--值
+native final class SappHash extends SappObject {
+
+	native [SappHash]create(one<?SappJava);
+	#创建一个Hash表，后面的字符串没有使用。
+	
+	def put(key,value){
+		N_put(this,key,value);
+	}
+	native N_put(obj<?SappHash,key<?SappString,value);
+	#添加键和值
+	
+	def get(key){
+		return N_get(this,key);
+	}
+	native [?]N_get(obj<?SappHash,key<?SappString);
+	#根据键获得值
+	
+	def remove(key){
+		N_remove(this,key);
+	}
+	native N_remove(obj<?SappHash,key<?SappString);
+	#移除一个键值，当然对应的值也移除了。
+	
+	def containKey(key){
+		return N_containKey(this,key);
+	}
+	native [SappBoolean]N_containKey(obj<?SappHash,key<?SappString);
+	#检查是否包含了键。
+	
+	def containValue(value){
+		return N_containValue(this,value);
+	}
+	native [SappBoolean]N_containValue(obj<?SappHash,one<?SappObject);
+	#检查是否包含了值。
+	
+	def isEmpty(){
+		return N_isEmpty(this);
+	}
+	native [SappBoolean]N_isEmpty(obj<?SappHash);
+	#是否为空。
+	
+	def [](one){
+	    if(one<?SappString){
+	    	return N_get(this,one);
+	    }else{
+	    	throw "要求SappString类型的参数!";
+	    }
+	}
+	#实现了下标操作。
+}

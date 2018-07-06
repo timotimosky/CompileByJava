@@ -1,0 +1,28 @@
+#declare=		/**\n        *#{cnName}\n        *#{type}\n#{params}        */\n        public final static int #{enName} = #{commandValue};\n
+#CommandModel=			model = new CommandModel(#{commandValue},"#{type}");\n			infoArray = new CommandInfoModel[]{#{commandArray}};\n			model.setCommandInfoModel(infoArray);\n			list.add(model);\n
+#params=		*	#{info} \n		*	Name:#{name}		TYPE:#{type}		SIZE:#{size}\n
+#commandArray=new CommandInfoModel("#{name}", "#{type}", #{size}#{list})
+#commandList=, new CommandInfoModel[]{#{commandList}}
+
+<-->
+package netWork.proxy;
+
+import java.util.ArrayList;
+import java.util.List;
+import com.commons.network.modulecore.model.CommandInfoModel;
+import com.commons.network.modulecore.model.CommandModel;
+
+	public class #{className} 
+	{
+#{command}
+		
+		public static List<CommandModel> DATA_MODE()
+        {
+        	List<CommandModel> list = new ArrayList<CommandModel>();
+            CommandModel model= null;
+            CommandInfoModel [] infoArray=null;
+#{commandDetail}
+        	return list;
+        }
+	
+	}

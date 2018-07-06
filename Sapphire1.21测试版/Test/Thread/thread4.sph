@@ -1,0 +1,18 @@
+
+class TestThread extends SappObject{#类定义,继承时支持方法的重写
+   
+    def test(){
+    	@time = 500;
+    	@num = 0;
+    	while(@num<10){
+    		SappSystem.print("\nTestThread>"+@num);
+    		@num++;
+    		SappThread.currentThread().sleep(@time);
+    	}
+    }
+}
+begin{#为开始执行的地方
+	SappSystem.print("测试线程的sleep方法:打印10次，间隔500ms。");
+	a = TestThread.new();
+	a.test();
+}

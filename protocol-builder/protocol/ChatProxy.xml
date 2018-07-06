@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<model name="CHATMODEL" as_class="ChatProxy" value="2010" desc="聊天模块">
+  <command en_name="CG_BROADCAST_MSG_LIST" cn_name="请求" value="6300" direction="Client"/>
+  <command en_name="CG_BROADCAST" cn_name="请求" value="6302" direction="Client">
+    <param name="diamond" type="int" size="4" remark="">消耗钻石</param>
+    <param name="broadcastContent" type="String" size="70" remark="">播报内容</param>
+  </command>
+  <command en_name="GC_BROADCAST" cn_name="返回" value="6303" direction="Server">
+    <param name="bcGuid" type="int" size="4" remark="">播报主键ID</param>
+    <param name="rankModelId" type="int" size="4" remark="">军衔Model ID</param>
+    <param name="playerId" type="long" size="8" remark="">角色ID</param>
+    <param name="playerName" type="String" size="40" remark="">角色名称</param>
+    <param name="country" type="byte" size="1" remark="">国籍</param>
+    <param name="generalModelId" type="int" size="4" remark="">出战主将原型ID</param>
+    <param name="broadcastContent" type="String" size="70" remark="">播报内容</param>
+    <param name="createTime" type="long" size="8" remark="">创建时间</param>
+  </command>
+  <command en_name="GC_BROADCAST_PUSH" cn_name="推送" value="6304" direction="Server">
+    <param name="bcGuid" type="int" size="4" remark="">播报主键ID</param>
+    <param name="rankModelId" type="int" size="4" remark="">军衔Model ID</param>
+    <param name="playerId" type="long" size="8" remark="">角色ID</param>
+    <param name="playerName" type="String" size="40" remark="">角色名称</param>
+    <param name="country" type="byte" size="1" remark="">国籍</param>
+    <param name="generalModelId" type="int" size="4" remark="">出战主将原型ID</param>
+    <param name="broadcastContent" type="String" size="70" remark="">播报内容</param>
+    <param name="createTime" type="long" size="8" remark="">创建时间</param>
+  </command>
+  <command en_name="CG_BROADCAST_DISPOSE_TIMELY" cn_name="请求" value="6562" direction="Client">
+    <param name="bcGuid" type="int" size="4" remark="">播报主键ID</param>
+    <param name="bcType" type="byte" size="1" remark="">评价类型</param>
+  </command>
+  <command en_name="GC_BROADCAST_DISPOSE_TIMELY" cn_name="请求" value="6563" direction="Server">
+    <param name="bcGuid" type="int" size="4" remark="">播报主键ID</param>
+    <param name="diamond" type="int" size="4" remark="">钻石数量</param>
+  </command>
+  <command en_name="GC_BROADCAST_END" cn_name="推送" value="6555" direction="Server">
+    <param name="bcGuid" type="int" size="4" remark="">播报主键ID</param>
+  </command>
+  <command en_name="CG_CHAT_SEND" cn_name="请求" value="6305" direction="Client">
+    <param name="msgType" type="byte" size="1" remark="">频道消息类型</param>
+    <param name="msgContent" type="String" size="70" remark="">消息内容</param>
+  </command>
+  <command en_name="GC_CHAT_SEND" cn_name="返回" value="6306" direction="Server"/>
+  <command en_name="GC_CHAT_PUSH" cn_name="推送" value="6307" direction="Server">
+    <param name="rankModelId" type="int" size="4" remark="">军衔Model ID</param>
+    <param name="playerId" type="long" size="8" remark="">角色ID</param>
+    <param name="playerName" type="String" size="40" remark="">角色名称</param>
+    <param name="country" type="byte" size="1" remark="">国籍</param>
+    <param name="msgContent" type="String" size="70" remark="">消息内容</param>
+    <param name="createTime" type="long" size="8" remark="">创建时间</param>
+    <param name="msgType" type="byte" size="1" remark="">频道消息类型</param>
+    <param name="templateModelId" type="int" size="4" remark="">对话模板ModelId</param>
+    <param name="templateValue" type="String" size="40" remark="">对话模板Value值</param>
+  </command>
+  <command en_name="CG_CHAT_CRYPTOLALIA" cn_name="请求" value="6308" direction="Client">
+    <param name="playerId" type="long" size="8" remark="">角色ID (发送对象)</param>
+    <param name="msgContent" type="String" size="70" remark="">消息内容</param>
+  </command>
+  <command en_name="GC_CHAT_CRYPTOLALIA" cn_name="返回" value="6309" direction="Server">
+    <param name="rankModelId" type="int" size="4" remark="">军衔Model ID</param>
+    <param name="playerId" type="long" size="8" remark="">角色ID</param>
+    <param name="playerName" type="String" size="40" remark="">角色名称</param>
+    <param name="country" type="byte" size="1" remark="">国籍</param>
+    <param name="msgContent" type="String" size="70" remark="">消息内容</param>
+    <param name="createTime" type="long" size="8" remark="">创建时间</param>
+    <param name="msgType" type="byte" size="1" remark="">频道消息类型</param>
+    <param name="templateModelId" type="int" size="4" remark="">对话模板ModelId</param>
+    <param name="templateValue" type="String" size="40" remark="">对话模板Value值</param>
+  </command>
+  <command en_name="CG_CHAT_PLAYER" cn_name="请求" value="6310" direction="Client">
+    <param name="playerId" type="long" size="8" remark="">角色ID</param>
+  </command>
+  <command en_name="GC_CHAT_PLAYER" cn_name="返回" value="6311" direction="Server">
+    <param name="playerId" type="long" size="8" remark="">角色ID</param>
+    <param name="playerName" type="String" size="40" remark="">角色名称</param>
+    <param name="rankModelId" type="int" size="4" remark="">军衔Model ID</param>
+    <param name="country" type="byte" size="1" remark="">国籍</param>
+    <param name="sex" type="byte" size="1" remark="">性别</param>
+    <param name="icon" type="byte" size="1" remark="">头像</param>
+    <param name="iconUrl" type="String" size="70" remark="">上传头像路径</param>
+    <param name="potency" type="int" size="4" remark="">战斗力</param>
+    <param name="onLineState" type="byte" size="1" remark="">是否在线 (0在线, l不在线)</param>
+    <param name="signature" type="String" size="70" remark="">个性签名</param>
+    <param name="evaluateList" type="listEvaluate" size="2" remark="" text="评价">
+      <param name="type" type="byte" size="1" remark="">评价类型</param>
+      <param name="num" type="int" size="4" remark="">评价次数</param>
+    </param>
+  </command>
+</model>

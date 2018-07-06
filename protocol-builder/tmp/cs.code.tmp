@@ -1,0 +1,27 @@
+#declare=		/**\n        *#{cnName}\n        *#{type}\n#{params}        */\n        public const int #{enName} = #{commandValue};\n
+#CommandModel=			model = new CommandModel(#{commandValue},"#{type}");\n			infoArray = new CommandInfoModel[]{#{commandArray}};\n			model.setCommandInfoModel(infoArray);\n			list.Add(#{commandValue},model);\n
+#params=		*	#{info} \n		*	Name:#{name}		TYPE:#{type}		SIZE:#{size}\n
+#commandArray=new CommandInfoModel("#{name}", "#{type}", #{size}#{list})
+#commandList=, new CommandInfoModel[]{#{commandList}}
+
+<-->
+using Communication.Model;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+
+	public class #{className} 
+	{
+#{command}
+		
+		public static Dictionary<int,CommandModel> DATA_MODE()
+        {
+        	Dictionary<int,CommandModel> list=new Dictionary<int,CommandModel>();
+            CommandModel model= null;
+            CommandInfoModel [] infoArray=null;
+#{commandDetail}
+        	return list;
+        }
+	
+	}

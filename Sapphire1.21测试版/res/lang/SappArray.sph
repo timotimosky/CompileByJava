@@ -1,0 +1,63 @@
+#数组类 Array
+native  final class SappArray extends SappObject {
+
+	native [SappArray]create(one<?SappJava);
+	#创建一个数组，one为java的字符串但是本地类不会使用到。
+	
+	def put(param){
+		N_put(this,param);
+	}
+	native N_put(obj<?SappArray,param);
+	#添加元素,这个方法必须有
+	
+	def set(index,param){
+		N_set(this,index,param);
+	}
+	native N_set(obj<?SappArray,index<?SappInteger,param);
+	#给定位置设置一个元素,这个方法必须有
+	
+	def get(param){
+		return N_get(this,param);
+	}
+	native [?]N_get(obj<?SappArray,param<?SappInteger);
+	#获得数组里的元素,这个方法必须有
+	
+	def [](one){
+		if(one<?SappInteger){
+			return N_get(this,one);
+		}else{
+			throw "不能是这个类型的参数";
+		}
+	}
+	#下标操作
+	
+	def new(one){
+		if(one<?SappInteger){
+			this = createArray(one);
+		}else{
+			throw "不能是这个类型的参数";
+		}
+		
+	}
+	
+	native [SappArray]createArray(one<?SappInteger);
+	#开辟一个one这么大的数组。
+	
+	def size(){
+		return N_size(this);
+	}
+	native [SappInteger]N_size(obj<?SappArray);
+	#获得这个数组的大小。
+	
+	def putByIndex(index,param){
+		N_putByIndex(this,index,param);
+	}
+	native N_putByIndex(obj<?SappArray,index<?SappInteger,param<?SappObject);
+	#给定位置添加一个元素
+	
+	def setSize(param){
+		N_setSize(this,param);
+	}
+	native N_setSize(obj<?SappArray,param<?SappInteger);
+	#设置新的大小。
+}

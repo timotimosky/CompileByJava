@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<model name="RANKLISTMODEL" as_class="RankListProxy" value="2017" desc="排行榜模块">
+  <command en_name="CG_RANKLIST_LIST" cn_name="请求" value="6901" direction="Client">
+    <param name="type" type="byte" size="1" remark="">请求的排行榜大类型</param>
+    <param name="category" type="short" size="2" remark="">请求的排行榜小类型</param>
+  </command>
+  <command en_name="GC_RANKLIST_LIST" cn_name="返回" value="6902" direction="Server">
+    <param name="type" type="byte" size="1" remark="">请求的排行榜类型</param>
+    <param name="category" type="short" size="2" remark="">请求的排行榜小类型</param>
+    <param name="currRanking" type="int" size="4" remark="">当前排名</param>
+    <param name="updateTime" type="long" size="8" remark="">下次更新时间（毫秒）</param>
+    <param name="ranklistList" type="listRanklist" size="2" remark="" text="玩家当前拥有的成就列表">
+      <param name="ranking" type="short" size="2" remark="">玩家排名</param>
+      <param name="upOrDown" type="byte" size="1" remark="">是否上升 2上升 1不变 0下降</param>
+      <param name="country" type="byte" size="1" remark="">国家</param>
+      <param name="rankIcon" type="int" size="4" remark="">军衔图标</param>
+      <param name="playerName" type="String" size="20" remark="">姓名</param>
+      <param name="score" type="int" size="4" remark="">排行分数</param>
+    </param>
+  </command>
+</model>

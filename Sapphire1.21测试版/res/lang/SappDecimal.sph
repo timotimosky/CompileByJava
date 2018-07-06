@@ -1,0 +1,126 @@
+#一个小数类
+native final class SappDecimal extends SappObject{
+	
+	native [SappDecimal]create(one<?SappJava);
+	#字符串字面值 整数如:12.5  对应的对象SappDecimal方法。
+	####################################################
+	def +(one){
+	    if(one<?SappString){
+	    	return toString()+one;
+	    }else{
+	    	return addition(this,one);
+	    }
+	}
+	#+
+	
+	def -(one){
+	    return subtraction(this,one);
+	}
+	#-
+	
+	def *(one){	 
+	   return multiplication(this,one);
+	}
+	#*
+	
+	def /(one){	 
+    	return division(this,one);
+	}
+	#/
+	
+	def %(one){	
+	    return complementation(this,one);	    
+	}
+	#%
+	
+	native [SappDecimal]addition(obj<?SappDecimal,one<?SappDecimal||SappInteger);
+	#plus
+	
+	native [SappDecimal]subtraction(obj<?SappDecimal,one<?SappDecimal||SappInteger);
+	#substraction
+	
+	native [SappDecimal]multiplication(obj<?SappDecimal,one<?SappDecimal||SappInteger);
+	#multiplication;
+	
+	native [SappDecimal]division(obj<?SappDecimal,one<?SappDecimal||SappInteger);
+	#division
+	
+	native [SappDecimal]complementation(obj<?SappDecimal,one<?SappDecimal||SappInteger);
+	#percent
+	
+	####################关系方法##########################
+	def <(one){
+		return less(this,one);
+	}
+	native [SappBoolean]less(obj<?SappDecimal,one<?SappDecimal||SappInteger);
+	
+	def <=(one){
+		return lessequal(this,one);
+	}
+	native [SappBoolean]lessequal(obj<?SappDecimal,one<?SappDecimal||SappInteger);
+	
+	def >(one){
+		return more(this,one);
+	}
+	native [SappBoolean]more(obj<?SappDecimal,one<?SappDecimal||SappInteger);
+	
+	def >=(one){
+		return moreequal(this,one);
+	}
+	native [SappBoolean]moreequal(obj<?SappDecimal,one<?SappDecimal||SappInteger);
+	
+	def ==(one){
+		return equal(this,one);
+	}
+	native [SappBoolean]equal(obj<?SappDecimal,one<?SappDecimal||SappInteger);
+	
+	def !=(one){
+		return unequal(this,one);
+	}
+	native [SappBoolean]unequal(obj<?SappDecimal,one<?SappDecimal||SappInteger);
+	######################################################
+	
+	def toInteger(){
+		return N_toInteger(this);
+	}
+	native [SappInteger]N_toInteger(obj<?SappInteger);
+	#转换为Integer
+	
+	def toString(){
+		return N_toString(this);
+	}
+	native [SappString]N_toString(obj<?SappInteger);
+	#toString
+	
+	def type(){
+		return "SappDecimal";
+	}
+	#类型字符串
+	
+	def ++(one){
+		if(one == 1){#前置
+			this = this + 1;
+			return this;
+		}else{
+			this = this + 1;
+			return this - 1;
+		}
+	}
+	#++运算符
+	
+	def --(one){
+		if(one == 1){#前置
+			this = this - 1;
+			return this;
+		}else{
+			this = this - 1;
+			return this + 1;
+		}
+	}
+	#--运算符
+
+	def reverse(){
+		return 0.0 - this;
+	}
+	#相反数,这个方法必须有。
+}

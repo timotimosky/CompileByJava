@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<model name="CHAOSMODEL" as_class="ChaosProxy" value="2019" desc="混乱之地模块">
+  <command en_name="CG_SYSTEM_INFO" cn_name="请求" value="1001" direction="Client"/>
+  <command en_name="GC_SYSTEM_INFO" cn_name="返回" value="1002" direction="Server">
+    <param name="chaosAreaList" type="listChaosArea" size="2" remark="" text="完成区域列表">
+      <param name="area" type="int" size="4" remark="">区域ID</param>
+    </param>
+    <param name="chaosDunList" type="listChaosDun" size="2" remark="" text="完成关卡">
+      <param name="chaos_dun" type="int" size="4" remark="">关卡ID</param>
+    </param>
+  </command>
+  <command en_name="CG_REQUEST_FIGHT" cn_name="请求" value="1003" direction="Client">
+    <param name="chaos_dun" type="int" size="4" remark="">关卡ID</param>
+  </command>
+  <command en_name="GC_REQUEST_FIGHT" cn_name="返回" value="1004" direction="Server">
+    <param name="chaos_dun" type="int" size="4" remark="">关卡ID</param>
+  </command>
+  <command en_name="GC_FINISH_AREA" cn_name="推送" value="1005" direction="Server">
+    <param name="area" type="int" size="4" remark="">区域ID</param>
+  </command>
+  <command en_name="GC_FINISH_DUN" cn_name="推送" value="1006" direction="Server">
+    <param name="chaos_dun" type="int" size="4" remark="">关卡ID</param>
+  </command>
+  <command en_name="GC_RESULT" cn_name="推送" value="1007" direction="Server">
+    <param name="result" type="byte" size="1" remark="">结果 0胜利/ 1失败</param>
+    <param name="exp" type="int" size="4" remark="">经验</param>
+    <param name="gold" type="int" size="4" remark="">金币</param>
+    <param name="debris" type="int" size="4" remark="">碎片</param>
+    <param name="generalList" type="listNewGeneral" size="2" remark="" text="主将列表">
+      <param name="generalGuid" type="int" size="4" remark="">主将动态ID</param>
+      <param name="generalModelId" type="int" size="4" remark="">主将原型ID</param>
+      <param name="skillHoleList" type="iListSkillHole" size="2" remark="" text="技能集合">
+        <param name="positionId" type="byte" size="1" remark="">位置ID</param>
+        <param name="skillId" type="int" size="4" remark="">技能ID</param>
+        <param name="quality" type="byte" size="1" remark="">技能孔品质</param>
+      </param>
+    </param>
+    <param name="cardList" type="listCard" size="2" remark="" text="卡牌列表">
+      <param name="cardModelId" type="int" size="4" remark="">卡牌原型ID</param>
+      <param name="cardGuid" type="long" size="8" remark="">卡牌动态ID</param>
+      <param name="gemList" type="ilistGem" size="2" remark="" text="宝石列表">
+        <param name="position" type="byte" size="1" remark="">宝石位置</param>
+        <param name="gemType" type="byte" size="1" remark="">宝石类型</param>
+      </param>
+    </param>
+  </command>
+  <command en_name="GC_SEND_MESSAGE" cn_name="推送" value="1008" direction="Server">
+    <param name="msg" type="string" size="20" remark="">消息</param>
+  </command>
+</model>

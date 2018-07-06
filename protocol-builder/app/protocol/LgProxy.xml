@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<model name="LGMODEL" as_class="LgProxy" value="2" desc="登陆模块">
+  <command en_name="CG_HEART" cn_name="接收" value="100" direction="Client">
+    <param name="result" type="short" size="2" remark="">结果</param>
+    <param name="time" type="long" size="8" remark="">当前时间</param>
+  </command>
+  <command en_name="CG_GS_VALIDATE" cn_name="请求登录" value="102" direction="Client">
+    <param name="result" type="short" size="2" remark="">结果</param>
+    <param name="accountId" type="long" size="8" remark="">账号ID</param>
+  </command>
+  <command en_name="GC_GS_VALIDATE" cn_name="登录返回" value="103" direction="Server">
+    <param name="ifSucesll" type="byte" size="1" remark="">0成功，其他为失败</param>
+  </command>
+</model>

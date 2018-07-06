@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<model name="UTILMODEL" as_class="UtilProxy" value="1" desc="公共模型">
+  <command en_name="GC_HEART_BEAT" cn_name="推送" value="100" direction="Server">
+    <param name="time" type="long" size="8" remark="">当前时间</param>
+  </command>
+  <command en_name="CG_TEST_FIRST" cn_name="接收" value="200" direction="Client">
+    <param name="time" type="long" size="8" remark="">当前时间</param>
+  </command>
+  <command en_name="GC_TEST_FIRST" cn_name="返回" value="201" direction="Server">
+    <param name="time" type="long" size="8" remark="">之后时间</param>
+    <param name="id" type="int" size="4" remark="">ID</param>
+  </command>
+  <command en_name="CG_TEST_LIST" cn_name="接收" value="800" direction="Client"/>
+  <command en_name="GC_TEST_LIST" cn_name="返回" value="801" direction="Server">
+    <param name="testList" type="listaTest" size="1" remark="" text="集合测试">
+      <param name="bList" type="ilistB" size="1" remark="" text="嵌套list数据测试">
+        <param name="b1" type="int" size="4" remark="">int型数据测试</param>
+      </param>
+      <param name="cList" type="ilistC" size="1" remark="" text="嵌套list型数据测试">
+        <param name="c1" type="float" size="4" remark="">float型数据测试</param>
+      </param>
+    </param>
+  </command>
+  <command en_name="CG_TEST" cn_name="接收" value="900" direction="Client">
+    <param name="countId" type="int" size="4" remark="">字符串数据测试</param>
+    <param name="i" type="int" size="4" remark="">Int型数据测试</param>
+    <param name="l" type="long" size="8" remark="">Long型数据测试</param>
+    <param name="b" type="byte" size="1" remark="">Byte型数据测试</param>
+    <param name="s" type="short" size="2" remark="">Short型数据测试</param>
+    <param name="f" type="float" size="4" remark="">Float型数据测试</param>
+    <param name="d" type="double" size="8" remark="">Double型数据测试</param>
+  </command>
+  <command en_name="GC_TEST" cn_name="返回" value="901" direction="Server">
+    <param name="countId" type="int" size="4" remark="">字符串数据测试</param>
+    <param name="i" type="int" size="4" remark="">Int型数据测试</param>
+    <param name="l" type="long" size="8" remark="">Long型数据测试</param>
+    <param name="b" type="byte" size="1" remark="">Byte型数据测试</param>
+    <param name="s" type="short" size="2" remark="">Short型数据测试</param>
+    <param name="f" type="float" size="4" remark="">Float型数据测试</param>
+    <param name="d" type="double" size="8" remark="">Double型数据测试</param>
+    <param name="li" type="listtest" size="8" remark="" text="List类型数据测试">
+      <param name="id" type="int" size="4" remark="">List里的数据测试int</param>
+      <param name="name" type="string" size="8" remark="">List里的数据测试String</param>
+      <param name="sex" type="byte" size="1" remark="">List里的数据测试byte</param>
+      <param name="age" type="byte" size="1" remark="">List里的数据测试byte</param>
+    </param>
+  </command>
+</model>

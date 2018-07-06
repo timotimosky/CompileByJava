@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<models>
+  <model name="UTILMODEL" as_class="UtilProxy" value="1" desc="公共模型"/>
+  <model name="LGMODEL" as_class="LgProxy" value="2" desc="登陆模块"/>
+  <model name="GLMODEL" as_class="GlProxy" value="2" desc="游戏服与登录服通信模块"/>
+  <model name="LOGINMODEL" as_class="LoginProxy" value="1001" desc="登陆服登陆模型"/>
+  <model name="PLAYERMODEL" as_class="PlayerProxy" value="2001" desc="游戏服角色模块"/>
+  <model name="SCENEMODEL" as_class="SceneProxy" value="2002" desc="游戏服场景模块"/>
+  <model name="FIGHTERMODEL" as_class="FighterProxy" value="2004" desc="战斗模块"/>
+  <model name="CONQUESTMODEL" as_class="ConquestProxy" value="6" desc="匹配模块"/>
+  <model name="CARDMODEL" as_class="CardProxy" value="2007" desc="卡牌模块"/>
+  <model name="GENERALMODEL" as_class="GeneralProxy" value="2008" desc="将军府模块"/>
+  <model name="FRIENDMODEL" as_class="FriendProxy" value="2009" desc="好友模块"/>
+  <model name="CHATMODEL" as_class="ChatProxy" value="2010" desc="聊天模块"/>
+  <model name="GIFTMODEL" as_class="GiftProxy" value="2011" desc="礼物模块"/>
+  <model name="BROADCASTMODEL" as_class="BroadcastProxy" value="2012" desc="播报模块"/>
+  <model name="MISSIONMODEL" as_class="MissionProxy" value="2013" desc="任务模块"/>
+  <model name="MAINMAPMODEL" as_class="MainMapProxy" value="2014" desc="大地图模块"/>
+  <model name="TECHMODEL" as_class="TechProxy" value="2015" desc="科技模块"/>
+  <model name="ACHIEVEMENTMODEL" as_class="AchievementProxy" value="2016" desc="军衔、成就模块"/>
+  <model name="RANKLISTMODEL" as_class="RankListProxy" value="2017" desc="排行榜模块"/>
+  <model name="SHOPMODEL" as_class="ShopProxy" value="2018" desc="商城模块"/>
+  <model name="CHAOSMODEL" as_class="ChaosProxy" value="2019" desc="混乱之地模块"/>
+</models>

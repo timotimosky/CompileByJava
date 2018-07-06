@@ -1,0 +1,74 @@
+#真假类
+native final class SappBoolean extends SappObject{
+	
+    native [SappBoolean]create(one<?SappJava);
+   #字符串字面值 true或者false 对应的对象SappBoolean方法。
+    
+    def toString(){
+	return N_toString(this);
+	}
+    native [SappString]N_toString(obj<?SappObject);
+    #toStirng方法。
+    
+    def type(){
+		return "SappBoolean";
+	}
+	#字符串类型。
+	
+	def ==(one){
+		return equals(this,one);
+	}
+	native [SappBoolean]equals(this<?SappBoolean,param<?SappBoolean);
+	#==
+	
+	def !(){
+		if(this){
+			return false;
+		}else{
+		    return true;
+		}
+	}
+	#!
+	
+	def ||(one){
+		if(one<?SappBoolean){
+			if(this == true){
+				return true;
+			}
+			if(one == true){
+				return true;
+			}
+			return false;
+		}else{
+			throw "不匹配的参数类型。";
+		}
+	}
+	#||
+	
+	def &&(one){
+		if(one<?SappBoolean){
+			if(this == false){
+				return false;
+			}
+			if(one == false){
+				return false;
+			}
+			return true;
+		}else{
+			throw "不匹配的参数类型。";
+		}
+	}
+	#&&
+	
+	def ^(one){
+		if(one<?SappBoolean){
+			if(!(this&&one)&&(this||one)){
+				return true;
+			}
+			return false;
+		}else{
+			throw "不匹配的参数类型。";
+		}
+	}
+	#异或运算
+}

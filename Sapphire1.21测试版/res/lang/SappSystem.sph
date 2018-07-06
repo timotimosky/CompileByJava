@@ -1,0 +1,40 @@
+#系统类
+native final class SappSystem extends SappObject{
+	
+	def static(){#这个方法设置引擎到本地类对象中。
+		setEngine(SappJava.castWith("SappEngine"));
+	}
+	native setEngine(one<?SappJava);#给这个对象设置引擎。
+	
+	native loadJavaClass(one<?SappString);
+	#调用系统的java类加载器加载一个java的类，有可能在本地类中要运用其他的类。
+	#这里的字符串只是类名不包含class文件后缀名。根据系统nativepath变量确定路径。
+	
+	native load(one<?SappString);
+	#加载一个类文件
+	
+	native [SappString]readLine();
+	#在输入流读入一行字符串。
+	
+	def print(one){
+		if(one<?SappString){
+			printString(one);
+		}else{
+			printString(one.toString());
+		}
+	}
+	#打印一个对象。
+	
+	native printString(one<?SappString);
+	#在输出流打印字符串，这个方法不应该由使用者调用，使用者应该调用print方法。
+	
+	native exit(one<?SappInteger);
+	#退出的状态
+	#参数只有是0的时候才会推出。
+	
+	def type(){
+		return "SappSystem";
+	}
+	#类型字符串
+	
+}

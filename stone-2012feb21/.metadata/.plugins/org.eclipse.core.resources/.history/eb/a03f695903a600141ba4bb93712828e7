@@ -1,0 +1,8 @@
+package stone.ast;
+import stone.Token;
+
+//NumberLiteral 和 Name 类具有名为 value 及 name 的字段。
+public class NumberLiteral extends ASTLeaf {
+    public NumberLiteral(Token t) { super(t); }
+    public int value() { return token().getNumber(); }
+}

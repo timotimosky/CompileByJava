@@ -1,0 +1,20 @@
+
+class TestHash extends SappObject {
+
+}
+
+begin{
+	$a = "lu";
+	$b = "jun";
+	a = {"xin"=>TestHash.new(),$a=>123,$b=>"我"};
+	SappSystem.print("定义:$a = \"lu\";$b = \"jun\";主意:Hash表中的键只能是字符串。");
+	SappSystem.print("\n定义Hash:a = {\"xin\"=>TestHash.new(),$a=>123,$b=>\"我\"}");
+	SappSystem.print("\n当前Hash表中设置了下标操作方法。");
+	SappSystem.print("\n打印:a[\"xin\"]="+a["xin"]);
+	SappSystem.print("\n打印:a[$a]="+a[$a]);
+	SappSystem.print("\n打印:a[$b]="+a[$b]);
+	SappSystem.print("\n打印:a.get(\"xin\")="+a.get("xin"));
+	a.put("你好吗",SappObject.new());
+	SappSystem.print("\n设置:a.put(\"你好吗\",SappObject.new())");
+	SappSystem.print("\n打印:a[\"你好吗\"]="+a["你好吗"]);
+}

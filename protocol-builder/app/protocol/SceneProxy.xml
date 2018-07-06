@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<model name="SCENEMODEL" as_class="SceneProxy" value="2002" desc="游戏服场景模块">
+  <command en_name="CG_MOVE" cn_name="接收" value="1001" direction="Client">
+    <param name="visualId" type="int" size="4" remark="">场景可视对象ID</param>
+    <param name="currentX" type="float" size="4" remark="">当前x</param>
+    <param name="currentY" type="float" size="4" remark="">当前y</param>
+    <param name="targetX" type="float" size="4" remark="">目标x</param>
+    <param name="targetY" type="float" size="4" remark="">目标y</param>
+  </command>
+  <command en_name="GC_MOVE" cn_name="推送" value="1002" direction="Server">
+    <param name="visualId" type="int" size="4" remark="">场景可视对象ID</param>
+    <param name="moveTime" type="long" size="8" remark="">开始移动时间</param>
+    <param name="currentX" type="float" size="4" remark="">当前x</param>
+    <param name="currentY" type="float" size="4" remark="">当前y</param>
+    <param name="targetX" type="float" size="4" remark="">目标x</param>
+    <param name="targetY" type="float" size="4" remark="">目标y</param>
+  </command>
+  <command en_name="CG_STOP" cn_name="接收" value="1003" direction="Client">
+    <param name="visualId" type="int" size="4" remark="">场景可视对象ID</param>
+    <param name="currentX" type="float" size="4" remark="">当前x</param>
+    <param name="currentY" type="float" size="4" remark="">当前y</param>
+  </command>
+  <command en_name="GC_STOP" cn_name="推送" value="1004" direction="Server">
+    <param name="visualId" type="int" size="4" remark="">场景可视对象ID</param>
+    <param name="currentX" type="float" size="4" remark="">当前x</param>
+    <param name="currentY" type="float" size="4" remark="">当前y</param>
+  </command>
+  <command en_name="GC_DELETE_VISUAL" cn_name="推送" value="1005" direction="Server">
+    <param name="visualId" type="int" size="4" remark="">场景可视对象ID</param>
+  </command>
+  <command en_name="GC_ADD_TROOP" cn_name="推送" value="1006" direction="Server">
+    <param name="visualId" type="int" size="4" remark="">场景可视对象ID(唯一)</param>
+    <param name="controlId" type="int" size="4" remark="">控制对象ID</param>
+    <param name="troopBaseId" type="int" size="4" remark="">部队原形ID</param>
+    <param name="x" type="float" size="4" remark="">当前x</param>
+    <param name="y" type="float" size="4" remark="">当前y</param>
+    <param name="targetX" type="float" size="4" remark="">目标x</param>
+    <param name="targetY" type="float" size="4" remark="">目标y</param>
+    <param name="moveTime" type="long" size="8" remark="">移动时间</param>
+    <param name="hp" type="int" size="4" remark="">血量</param>
+    <param name="troopAttrList" type="listTroopAttrs" size="2" remark="" text="部队战斗属性">
+      <param name="attrId" type="short" size="2" remark="">属性ID</param>
+      <param name="attrValue" type="int" size="4" remark="">属性值</param>
+    </param>
+    <param name="buffList" type="listBuff" size="2" remark="" text="Buff列表">
+      <param name="attackId" type="int" size="4" remark="">攻击对象ID(Buff来源)</param>
+      <param name="effectId" type="int" size="4" remark="">动态效果ID</param>
+      <param name="effectModelId" type="int" size="4" remark="">效果原形ID</param>
+      <param name="beginTime" type="long" size="8" remark="">开始时间</param>
+      <param name="endTime" type="long" size="8" remark="">结束时间</param>
+    </param>
+  </command>
+  <command en_name="GC_ADD_SCENE_SKILL" cn_name="推送" value="1014" direction="Server">
+    <param name="visualId" type="int" size="4" remark="">场景可视对象ID(唯一)</param>
+    <param name="controlId" type="int" size="4" remark="">控制对象ID</param>
+    <param name="visualModelId" type="int" size="4" remark="">可视对象模型ID</param>
+    <param name="x" type="float" size="4" remark="">当前x</param>
+    <param name="y" type="float" size="4" remark="">当前y</param>
+  </command>
+  <command en_name="CG_Enter_Map" cn_name="客户端请求进入地图" value="1015" direction="Client">
+    <param name="playerId" type="int" size="4" remark="">玩家ID</param>
+  </command>
+  <command en_name="GC_Enter_Map" cn_name="通知其他客户端，有新人进入" value="1016" direction="Server">
+    <param name="playerId" type="int" size="4" remark="">准备进入的玩家ID</param>
+  </command>
+</model>

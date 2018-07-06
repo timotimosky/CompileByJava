@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<model name="LOGINMODEL" as_class="LoginProxy" value="1001" desc="登陆服登陆模型">
+  <command en_name="GC_AUTH_SESSION" cn_name="推送" value="100" direction="Server">
+    <param name="session" type="int" size="4" remark="">Session ID</param>
+  </command>
+  <command en_name="CG_CONN_AUTH" cn_name="接收" value="101" direction="Client">
+    <param name="code" type="String" size="8" remark="">授权加密代码</param>
+  </command>
+  <command en_name="GC_CONN_AUTH" cn_name="返回" value="102" direction="Server"/>
+  <command en_name="CG_LOGIN" cn_name="接收" value="103" direction="Client">
+    <param name="type" type="short" size="2" remark="">登陆来源类型</param>
+    <param name="value" type="String" size="100" remark="">登陆平台数据</param>
+  </command>
+  <command en_name="GC_LOGIN" cn_name="返回" value="104" direction="Server">
+    <param name="accountId" type="long" size="8" remark="">账号ID</param>
+    <param name="Type" type="short" size="2" remark="">登陆来源类型</param>
+    <param name="value" type="String" size="100" remark="">登陆平台返回数据</param>
+    <param name="lastServer" type="short" size="2" remark="">最近登陆服务器ID</param>
+    <param name="serversList" type="listservers" size="2" remark="" text="服务器列表">
+      <param name="serverId" type="short" size="2" remark="">服务器ID</param>
+      <param name="name" type="string" size="8" remark="">服务器名称</param>
+      <param name="nop" type="int" size="4" remark="">服务器当前人数</param>
+      <param name="max" type="int" size="4" remark="">服务器最大人数</param>
+    </param>
+  </command>
+  <command en_name="CG_SERVER_ID" cn_name="接收" value="105" direction="Client">
+    <param name="id" type="short" size="2" remark="">服务器ID</param>
+  </command>
+  <command en_name="GC_SERVER_ID" cn_name="返回" value="106" direction="Server">
+    <param name="serverId" type="short" size="2" remark="">服务器ID</param>
+    <param name="ip" type="String" size="20" remark="">服务器IP</param>
+    <param name="port" type="short" size="2" remark="">服务器端口</param>
+    <param name="key1" type="int" size="4" remark="">秘钥1</param>
+    <param name="key2" type="int" size="4" remark="">秘钥2</param>
+  </command>
+</model>

@@ -1,0 +1,10 @@
+#declare=		 /**\n		 *#{info}\n	     **/\n		 public final static int #{name} = #{commandValue};\n
+
+<-->
+package com.darren.game.server.network;
+
+	public class ControllerModel
+    {
+#{controllerDetail}
+	}
+}

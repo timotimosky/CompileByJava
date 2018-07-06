@@ -1,0 +1,7 @@
+#这是一个很重要的类，这个类可以吧引擎类和java类混合使用。
+#在执行一个方法的时候这个类会自动转换了本地类。
+native final class SappJava extends SappObject {
+	#这个方法可以把一个本地对象库中的对象转化为这个类。
+	native [SappJava]castWith(one<?SappString);
+	
+} 

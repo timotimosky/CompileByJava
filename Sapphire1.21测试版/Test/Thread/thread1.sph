@@ -1,0 +1,19 @@
+
+class TestThread extends SappObject{#类定义,继承时支持方法的重写
+   
+    def test(){	
+		num = 0;#如果使用实例变量@num存在竞争。
+    	while(num<10){
+    		SappSystem.print("\nTestThread>"+num);
+    		num++;
+    	}
+    }
+}
+begin{#为开始执行的地方
+	SappSystem.print("测试两个线程同时执行一个对象的非同步方法:");
+	a = TestThread.new();
+	$a = SappThread.createThread(a);
+	$b = SappThread.createThread(a);
+	$a.start("test");
+	$b.start("test");
+}

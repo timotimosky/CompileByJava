@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<model name="GIFTMODEL" as_class="GiftProxy" value="2011" desc="礼物模块">
+  <command en_name="CG_GIFT_PRESENT" cn_name="请求" value="6400" direction="Client">
+    <param name="giftNum" type="int" size="4" remark="">礼物数量</param>
+    <param name="playerId" type="long" size="8" remark="">受赠角色ID</param>
+  </command>
+  <command en_name="GC_GIFT_PRESENT" cn_name="返回" value="6401" direction="Server"/>
+  <command en_name="GC_GIFT_NOTIFY" cn_name="推送" value="6402" direction="Server">
+    <param name="giftGid" type="int" size="4" remark="">礼物动态id</param>
+    <param name="giftNum" type="int" size="4" remark="">礼物数量</param>
+    <param name="presentId" type="long" size="8" remark="">赠送角色ID</param>
+    <param name="presentSex" type="byte" size="1" remark="">赠送角色性别</param>
+    <param name="presentName" type="String" size="20" remark="">赠送角色名称</param>
+    <param name="playerIconUrl" type="String" size="20" remark="">赠送角色的头像地址</param>
+    <param name="playerIcon" type="int" size="4" remark="">赠送角色的头像id</param>
+  </command>
+  <command en_name="CG_GIFT_CHECK" cn_name="请求" value="6403" direction="Client"/>
+  <command en_name="GC_GIFT_CHECK" cn_name="返回" value="6404" direction="Server">
+    <param name="giftNum" type="int" size="4" remark="">礼物数量</param>
+  </command>
+  <command en_name="CG_GIFT_DEL" cn_name="请求" value="6405" direction="Client">
+    <param name="giftGid" type="int" size="4" remark="">礼物动态id</param>
+  </command>
+  <command en_name="GC_GIFT_DEL" cn_name="返回" value="6406" direction="Server">
+    <param name="giftGid" type="int" size="4" remark="">礼物动态id</param>
+  </command>
+  <command en_name="CG_GIFT_LIST" cn_name="请求" value="6407" direction="Client"/>
+  <command en_name="GC_GIFT_LIST" cn_name="返回" value="6408" direction="Server">
+    <param name="giftList" type="listGift" size="2" remark="" text="礼物列表">
+      <param name="giftGid" type="int" size="4" remark="">礼物动态id</param>
+      <param name="giftNum" type="int" size="4" remark="">礼物数量</param>
+      <param name="presentId" type="long" size="8" remark="">赠送角色ID</param>
+      <param name="presentSex" type="byte" size="1" remark="">赠送角色性别</param>
+      <param name="presentName" type="String" size="20" remark="">赠送角色名称</param>
+      <param name="playerIconUrl" type="String" size="20" remark="">赠送角色的头像地址</param>
+      <param name="playerIcon" type="int" size="4" remark="">赠送角色的头像id</param>
+    </param>
+  </command>
+  <command en_name="CG_GIFT_REBATE" cn_name="请求" value="6409" direction="Client">
+    <param name="giftNum" type="int" size="4" remark="">礼物数量</param>
+    <param name="playerId" type="long" size="8" remark="">受赠角色ID</param>
+    <param name="giftGid" type="int" size="4" remark="">礼物动态id</param>
+  </command>
+  <command en_name="GC_GIFT_REBATE" cn_name="返回" value="6410" direction="Server">
+    <param name="giftGid" type="int" size="4" remark="">礼物动态id</param>
+  </command>
+</model>

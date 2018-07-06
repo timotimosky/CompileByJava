@@ -1,0 +1,65 @@
+package stone;
+import static stone.Parser.rule;
+import java.util.HashSet;
+import stone.Parser.Operators;
+import stone.ast.*;
+
+//语法分析器
+//BasicParser 类首先定义了大量 Parser 类型的字段，它们是将代码清单 5.1 中列出的 BNF 语法规则转换为 Java 语言后得到的结果。
+//例如，primary 字段的定义基于非终结符 primary 的语法规则。factor 与 block 同理，都是相应的 Java 语言形式的语法规则。
+public class BasicParser {
+	
+	//保留字符
+    HashSet<String> reserved = new HashSet<String>();
+    
+    //操作符
+    Operators operators = new Operators();
+    
+    
+    Parser expr0 = rule();
+    Parser primary = rule(PrimaryExpr.class)
+        .or(rule().sep("(").ast(expr0).sep(")"),
+            rule().number(NumberLiteral.class),
+            rule().identifier(Name.class, reserved),
+            rule().string(StringLiteral.class));
+    
+    Parser factor = rule().or(rule(NegativeExpr.class).sep("-").ast(primary),
+                              primary);                               
+    Parser expr = expr0.expression(BinaryExpr.class, factor, operators);
+
+    Parser statement0 = rule();
+    Parser block = rule(BlockStmnt.class)
+        .sep("{").option(statement0)
+        .repeat(rule().sep(";", Token.EOL).option(statement0))
+        .sep("}");
+    Parser simple = rule(PrimaryExpr.class).ast(expr);
+    Parser statement = statement0.or(
+            rule(IfStmnt.class).sep("if").ast(expr).ast(block)
+                               .option(rule().sep("else").ast(block)),
+            rule(WhileStmnt.class).sep("while").ast(expr).ast(block),
+            simple);
+
+    Parser program = rule().or(statement, rule(NullStmnt.class)).sep(";", Token.EOL);
+
+    //构造函数
+    public BasicParser() {
+        reserved.add(";");
+        reserved.add("}");
+        reserved.add(Token.EOL);
+
+        operators.add("=", 1, Operators.RIGHT);
+        operators.add("==", 2, Operators.LEFT);
+        operators.add(">", 2, Operators.LEFT);
+        operators.add("<", 2, Operators.LEFT);
+        operators.add("+", 3, Operators.LEFT);
+        operators.add("-", 3, Operators.LEFT);
+        operators.add("*", 4, Operators.LEFT);
+        operators.add("/", 4, Operators.LEFT);
+        operators.add("%", 4, Operators.LEFT);
+    }
+    
+    //解析
+    public ASTree parse(Lexer lexer) throws ParseException {
+        return program.parse(lexer);
+    }
+}

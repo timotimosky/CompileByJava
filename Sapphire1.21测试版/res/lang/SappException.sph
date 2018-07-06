@@ -1,0 +1,10 @@
+#一个异常类
+class SappException extends SappObject {
+	def new(one){
+		@exception = one;
+	}
+	
+	def getExceptionObject(){
+		return @exception;
+	}
+}

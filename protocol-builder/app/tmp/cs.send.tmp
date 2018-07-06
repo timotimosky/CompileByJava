@@ -1,0 +1,31 @@
+#writeData=			write#{type}(buffer, #{classJavaName}.get#{paramName}());
+#ilistData=
+
+
+<-->
+package com.darren.game.server.network.resolve.sendable.#{listName};
+
+import java.util.List;
+
+import org.jboss.netty.buffer.ChannelBuffer;
+
+import com.commons.network.resolve.SendableBuffer;
+import #{package};
+
+public class #{name} extends SendableBuffer 
+{
+	@Override
+	@SuppressWarnings("unchecked")
+	public void write(ChannelBuffer buffer, Object obj)
+	{
+		List<#{className}> #{classJavaName}s = (List<#{className}>) obj;
+		final int length = #{classJavaName}s.size();
+		writeShort(buffer, length);
+		for (#{className} #{classJavaName} : #{classJavaName}s)
+		{
+#{writeDetail}
+		}
+
+	}
+
+}

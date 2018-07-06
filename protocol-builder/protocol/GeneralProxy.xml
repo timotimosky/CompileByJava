@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<model name="GENERALMODEL" as_class="GeneralProxy" value="2008" desc="将军府模块">
+  <command en_name="CG_GENERAL" cn_name="请求" value="6058" direction="Client"/>
+  <command en_name="GC_GENERAL" cn_name="返回" value="6059" direction="Server">
+    <param name="skillDebris" type="long" size="8" remark="">技能碎片</param>
+    <param name="mainGeneralId" type="int" size="4" remark="">出战主将动态ID</param>
+    <param name="generalList" type="listGeneral" size="2" remark="" text="主将列表">
+      <param name="generalGuid" type="int" size="4" remark="">主将动态ID</param>
+      <param name="generalModelId" type="int" size="4" remark="">主将原型ID</param>
+      <param name="skillHoleList" type="iListSkillHole" size="2" remark="" text="技能集合">
+        <param name="positionId" type="byte" size="1" remark="">位置ID</param>
+        <param name="skillId" type="int" size="4" remark="">技能ID</param>
+        <param name="quality" type="byte" size="1" remark="">技能孔品质</param>
+      </param>
+      <param name="cardList" type="ilistCardId" size="2" remark="" text="卡牌列表">
+        <param name="cardGuid" type="long" size="8" remark="">卡牌动态ID</param>
+      </param>
+    </param>
+  </command>
+  <command en_name="CG_GENERAL_SKILL" cn_name="请求" value="6056" direction="Client"/>
+  <command en_name="GC_GENERAL_SKILL" cn_name="返回" value="6057" direction="Server">
+    <param name="generalSkillList" type="listGeneralSkill" size="2" remark="" text="将军技能集合">
+      <param name="skillModelId" type="int" size="4" remark="">将军技能原型ID</param>
+      <param name="skillCount" type="int" size="4" remark="">将军技能库存</param>
+    </param>
+  </command>
+  <command en_name="CG_MAINSTAY" cn_name="请求" value="6060" direction="Client">
+    <param name="generalGuid" type="int" size="4" remark="">出战主将动态ID</param>
+  </command>
+  <command en_name="GC_MAINSTAY" cn_name="返回" value="6061" direction="Server">
+    <param name="generalGuid" type="int" size="4" remark="">出战主将动态ID</param>
+  </command>
+  <command en_name="CG_RECYCLE" cn_name="请求" value="6062" direction="Client">
+    <param name="generalGuid" type="int" size="4" remark="">出售主将动态ID</param>
+  </command>
+  <command en_name="GC_RECYCLE" cn_name="返回" value="6063" direction="Server">
+    <param name="generalGuid" type="int" size="4" remark="">出售主将动态ID</param>
+  </command>
+  <command en_name="CG_RECRUIT" cn_name="请求" value="6064" direction="Client">
+    <param name="type" type="byte" size="1" remark="">是否付费</param>
+  </command>
+  <command en_name="GC_RECRUIT" cn_name="返回" value="6065" direction="Server">
+    <param name="type" type="byte" size="1" remark="">是否付费</param>
+    <param name="generalList" type="listRecruitGeneral" size="2" remark="" text="主将列表">
+      <param name="generalGuid" type="int" size="4" remark="">主将动态ID</param>
+      <param name="generalModelId" type="int" size="4" remark="">主将原型ID</param>
+      <param name="skillHoleList" type="iListSkillHole" size="2" remark="" text="角色技能集合">
+        <param name="positionId" type="byte" size="1" remark="">技能孔位置ID</param>
+        <param name="skillId" type="int" size="4" remark="">角色技能ID</param>
+        <param name="quality" type="byte" size="1" remark="">主将技能孔品质</param>
+      </param>
+    </param>
+  </command>
+  <command en_name="CG_RECRUIT_ONE" cn_name="请求" value="6054" direction="Client">
+    <param name="generalGuid" type="int" size="4" remark="">主将动态ID</param>
+  </command>
+  <command en_name="GC_RECRUIT_ONE" cn_name="返回" value="6055" direction="Server">
+    <param name="generalGuid" type="int" size="4" remark="">主将动态ID</param>
+  </command>
+  <command en_name="CG_RESOLVE" cn_name="请求" value="6066" direction="Client">
+    <param name="skillId" type="int" size="4" remark="">角色技能ID</param>
+  </command>
+  <command en_name="GC_RESOLVE" cn_name="返回" value="6067" direction="Server">
+    <param name="skillId" type="int" size="4" remark="">角色技能ID</param>
+    <param name="skillCount" type="int" size="4" remark="">角色技能库存</param>
+  </command>
+  <command en_name="CG_COMPOUND" cn_name="请求" value="6068" direction="Client">
+    <param name="skillId" type="int" size="4" remark="">角色技能ID</param>
+  </command>
+  <command en_name="GC_COMPOUND" cn_name="返回" value="6069" direction="Server">
+    <param name="skillId" type="int" size="4" remark="">角色技能ID</param>
+    <param name="skillCount" type="int" size="4" remark="">角色技能库存</param>
+  </command>
+  <command en_name="CG_SKILLHOLE" cn_name="请求" value="6070" direction="Client">
+    <param name="generalGuid" type="int" size="4" remark="">主将动态ID</param>
+    <param name="skillHoleId" type="byte" size="1" remark="">角色技能孔ID</param>
+  </command>
+  <command en_name="GC_SKILLHOLE" cn_name="返回" value="6071" direction="Server">
+    <param name="generalGuid" type="int" size="4" remark="">主将动态ID</param>
+    <param name="skillHoleList" type="listSkillHole" size="2" remark="" text="角色技能集合">
+      <param name="positionId" type="byte" size="1" remark="">技能孔位置ID</param>
+      <param name="skillId" type="int" size="4" remark="">角色技能ID</param>
+      <param name="quality" type="byte" size="1" remark="">主将技能孔品质</param>
+    </param>
+  </command>
+  <command en_name="CG_REPLACE" cn_name="请求" value="6072" direction="Client">
+    <param name="generalGuid" type="int" size="4" remark="">主将动态ID</param>
+    <param name="skillHoleId" type="byte" size="1" remark="">主将技能孔ID</param>
+    <param name="skillId" type="int" size="4" remark="">角色技能ID</param>
+  </command>
+  <command en_name="GC_REPLACE" cn_name="返回" value="6073" direction="Server">
+    <param name="generalGuid" type="int" size="4" remark="">主将动态ID</param>
+    <param name="skillHoleList" type="listSkillHole" size="2" remark="" text="角色技能集合">
+      <param name="positionId" type="byte" size="1" remark="">技能孔位置ID</param>
+      <param name="skillId" type="int" size="4" remark="">角色技能ID</param>
+      <param name="quality" type="byte" size="1" remark="">主将技能孔品质</param>
+    </param>
+  </command>
+  <command en_name="GC_DEBRIS" cn_name="推送" value="6074" direction="Server">
+    <param name="debris" type="long" size="8" remark="">碎片库存量</param>
+  </command>
+  <command en_name="CG_SKILL_REMOVE" cn_name="请求" value="6075" direction="Client">
+    <param name="generalGuid" type="int" size="4" remark="">主将动态ID</param>
+    <param name="skillHoleId" type="byte" size="1" remark="">角色技能孔ID</param>
+  </command>
+  <command en_name="GC_SKILL_REMOVE" cn_name="返回" value="6076" direction="Server">
+    <param name="generalGuid" type="int" size="4" remark="">主将动态ID</param>
+    <param name="skillHoleId" type="byte" size="1" remark="">角色技能孔ID</param>
+  </command>
+  <command en_name="GC_ADD_GENERAL" cn_name="推送" value="6077" direction="Server">
+    <param name="generalGuid" type="int" size="4" remark="">主将动态ID</param>
+    <param name="generalModelId" type="int" size="4" remark="">主将原型ID</param>
+    <param name="skillHoleList" type="listSkillHole" size="2" remark="" text="主将技能集合">
+      <param name="positionId" type="byte" size="1" remark="">技能孔位置ID</param>
+      <param name="skillId" type="int" size="4" remark="">角色技能ID</param>
+      <param name="quality" type="byte" size="1" remark="">主将技能孔品质</param>
+    </param>
+  </command>
+</model>

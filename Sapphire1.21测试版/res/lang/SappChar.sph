@@ -1,0 +1,17 @@
+#字符类
+native final class SappChar extends SappObject{
+
+	native [SappChar]create(one<?SappJava);
+	#字符串字面值 ' '  对应的对象SappChar方法。
+	
+	def toString(){
+		return N_toString(this);
+	}
+	native [SappString]N_toString(one<?SappChar);
+	#toString方法。
+	
+	def type(){
+		return "SappChar";
+	}
+	#类型字符串
+}

@@ -1,0 +1,29 @@
+load{
+	SappObject="SappObject.sph";#所有类的父类
+
+	SappJava="SappJava.sph";#不可缺少的本地转换类。
+
+	SappNull="SappNull.sph";
+
+	SappBoolean="SappBoolean.sph";#真假
+
+	SappInteger="SappInteger.sph";
+
+	SappDecimal="SappDecimal.sph";
+
+	SappChar="SappChar.sph";
+
+	SappString="SappString.sph";
+
+	SappMath="SappMath.sph";
+
+	SappSystem="SappSystem.sph";
+
+	SappArray="SappArray.sph";
+
+	SappHash="SappHash.sph";
+
+	SappException="SappException.sph";
+
+	SappThread="SappThread.sph";
+}

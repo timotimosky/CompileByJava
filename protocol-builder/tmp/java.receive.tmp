@@ -1,0 +1,34 @@
+#readData=			/*#{info}*/\n			#{classJavaName}.set#{paramName}(read#{type}(buffer));
+#ilistData=			final int #{className}Length = readShort(buffer);\n			final List<#{className}> #{classJavaName}s = new ArrayList<>(#{className}Length);\n			for (int j = 0; j < #{className}Length; j++){\n			#{readDetail}\n			}\n			#{entityName}.set#{className}(#{classJavaName});
+#readBaseData=		/*#{info}*/\n			#{listName} = read#{type}(buffer);
+#importPackage=import #{package};\n
+<-->
+package com.darren.game.server.network.resolve.receivable.#{listName};
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.jboss.netty.buffer.ChannelBuffer;
+
+import com.commons.network.resolve.ReceivableChannelBuffer;
+#{packages};
+
+public class #{name} extends ReceivableChannelBuffer 
+{
+	@Override
+	public Object read(ChannelBuffer buffer) 
+	{
+		int length = readShort(buffer);
+		List<#{className}> result = new ArrayList<#{className}>(length);
+		#{className} #{classJavaName};
+		for (int i = 0; i < length; i++) 
+		{
+			#{classJavaName} = new #{className}();
+#{readDetail}
+			result.add(#{classJavaName});
+		}
+		return result;
+
+	}
+
+}

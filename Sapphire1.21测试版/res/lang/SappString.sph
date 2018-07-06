@@ -1,0 +1,46 @@
+#字符串类
+native final class SappString extends SappObject{
+	
+	native [SappString]create(one<?SappJava);
+	#利用字面值创建String对象。
+	
+	def +(one){
+		if(one<?SappString){
+			return mate(this,one);
+		}else{
+			return this+one.toString();
+		}
+	}
+	#+操作
+	
+	native [SappString]mate(obj<?SappString,one<?SappString);
+	#连接连个字符串方法，这个方法不宜使用者调用
+	
+	def charAt(one){
+		return N_charAt(this,one);
+	}
+	native [SappChar]N_charAt(obj<?SappString,one<?SappDecimal||SappInteger);
+	#返回字符串中给出索引的字符
+	
+	def ==(one){
+		if(one<?SappString){
+			return equalsString(this,one);
+		}else{
+			return equalsString(this,one.toString());
+		}
+	}
+	#两个字符串是否相等
+	
+	native [SappBoolean]equalsString(obj<?SappString,one<?SappString);
+	#两个字符串是否相等，这个方法不宜使用者调用
+	
+	def type(){
+		return "SappString";
+	}
+	#类型字符串
+	
+	def adressEquals(one){
+		return hashCode()==(one.hashCode());
+	}
+	#检查地址是否相等
+}

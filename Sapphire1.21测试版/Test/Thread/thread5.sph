@@ -1,0 +1,28 @@
+
+class TestThread extends SappObject{#类定义,继承时支持方法的重写
+   
+    def test(){
+    	synchronized(this){
+	    	SappSystem.print("对象执行test方法。");
+	    	this.wait(null);
+	    	SappSystem.print("notify激活线程。");
+	    	@num = 0;
+	    	while(@num<10){
+	    		SappSystem.print("\nTestThread>"+@num);
+	    		@num++;
+	    	}
+    	}
+    }
+}
+begin{#为开始执行的地方
+	SappSystem.print("测试线程的wait,notify方法主意执行的线程要拥有该对象的监视器。");
+	a = TestThread.new();
+	$a = SappThread.createThread(a);
+	$a.start("test");
+	SappSystem.print("主线程睡眠1000ms。");
+	SappThread.currentThread().sleep(1000);
+	SappSystem.print("\n唤醒线程。");
+	synchronized(a){
+		a.notify();
+	}
+}

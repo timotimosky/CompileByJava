@@ -1,0 +1,48 @@
+#这个是线程类，引擎必须加载这个类，否则无法生成运行时的主线程。
+native class SappThread extends SappObject {
+	
+	def static(){
+		mainThread(this);#把主线程对象写入类对象。
+	}
+	
+	native mainThread(obj<?SappThread);
+	
+	native [SappThread]createThread(object<?SappObject);
+	#根据某个对象创建一个线程。
+	
+	def currentThread(){
+		return N_currentThread(this);
+	}
+	native [SappThread]N_currentThread(obj<?SappThread);
+	
+	def start(name){
+		N_start(this,name);
+	}
+	native N_start(obj<?SappThread,name<?SappString);
+	#默认开始执行的方法。
+	
+	def sleep(time){
+		N_sleep(this,time);
+	}
+	native N_sleep(obj<?SappThread,time<?SappInteger);
+	#睡眠
+
+	def interrupt(){
+		N_interrupt(this);
+	}
+	native N_interrupt(obj<?SappThread);
+	#中断线程。
+	
+	def isAlive(){
+		return N_isAlive(this);
+	}
+	native [SappBoolean]N_isAlive(obj<?SappThread);
+	#测试线程是否处于活动状态。
+	
+	def isInterrupted(){
+		return N_isInterrupted(this);
+	}
+	native [SappBoolean]N_isInterrupted(obj<?SappThread);
+	#测试线程是否已经中断。
+	
+}

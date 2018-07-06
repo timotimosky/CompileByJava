@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<model name="MAINMAPMODEL" as_class="MainMapProxy" value="2014" desc="大地图模块">
+  <command en_name="CG_MAINMAP_JOIN" cn_name="请求" value="6601" direction="Client"/>
+  <command en_name="GC_MAINMAP_JOIN" cn_name="返回" value="6602" direction="Server">
+    <param name="quartsList" type="listQuarts" size="2" remark="com.darren.game.server.gameserver.module.mainmap.entity.QuartsEntity" text="玩家金矿列表">
+      <param name="quartsId" type="String" size="20" remark="">金矿Id</param>
+      <param name="quartsName" type="String" size="20" remark="">金矿名称</param>
+      <param name="open" type="byte" size="1" remark="">金矿是否开启</param>
+      <param name="openConsume" type="int" size="4" remark="">金矿开启钻石消耗</param>
+      <param name="currGold" type="int" size="4" remark="">当前金币</param>
+      <param name="level" type="int" size="4" remark="">金矿等级</param>
+      <param name="goldTurnout" type="int" size="4" remark="">每小时金石产量</param>
+      <param name="upgradeConsume" type="int" size="4" remark="">升级消耗钻石</param>
+      <param name="upgradeTurnout" type="int" size="4" remark="">升级增加产量</param>
+      <param name="goldLine" type="int" size="4" remark="">金矿金币上限</param>
+      <param name="generalIdList" type="ilistGeneralId" size="2" remark="" text="仓库驻守主将id列表">
+        <param name="generalId" type="int" size="4" remark="">驻守主将id</param>
+      </param>
+    </param>
+    <param name="corpsList" type="listCorps" size="2" remark="" text="兵种列表">
+      <param name="coordsId" type="int" size="4" remark="">地图坐标id</param>
+      <param name="corpsId" type="int" size="4" remark="">兵种类型id</param>
+      <param name="coordsX" type="float" size="4" remark="">兵种坐标X</param>
+      <param name="coordsY" type="float" size="4" remark="">兵种坐标Y</param>
+      <param name="coordsZ" type="float" size="4" remark="">兵种坐标Z</param>
+    </param>
+  </command>
+  <command en_name="CG_MAINMAP_LEAVE" cn_name="请求" value="6611" direction="Client"/>
+  <command en_name="GC_MAINMAP_LEAVE" cn_name="返回" value="6612" direction="Server"/>
+  <command en_name="CG_MAINMAP_QUARTS_OPEN" cn_name="请求" value="6613" direction="Client">
+    <param name="quartsId" type="String" size="20" remark="">金矿Id</param>
+  </command>
+  <command en_name="GC_MAINMAP_QUARTS_OPEN" cn_name="返回" value="6614" direction="Server">
+    <param name="quartsId" type="String" size="20" remark="">金矿Id</param>
+    <param name="open" type="byte" size="1" remark="">开启状态</param>
+  </command>
+  <command en_name="CG_MAINMAP_QUARTS_UPGRADE" cn_name="请求" value="6615" direction="Client">
+    <param name="quartsId" type="String" size="20" remark="">金矿Id</param>
+  </command>
+  <command en_name="GC_MAINMAP_QUARTS_UPGRADE" cn_name="返回" value="6616" direction="Server">
+    <param name="quartsId" type="String" size="20" remark="">金矿Id</param>
+    <param name="level" type="int" size="4" remark="">金矿等级</param>
+    <param name="goldTurnout" type="int" size="4" remark="">每小时金币产量</param>
+    <param name="upgradeConsume" type="int" size="4" remark="">升级消耗钻石</param>
+    <param name="upgradeTurnout" type="int" size="4" remark="">升级增加产量</param>
+    <param name="goldLine" type="int" size="4" remark="">金矿金币上限</param>
+  </command>
+  <command en_name="CG_MAINMAP_QUARTS_COLLECT" cn_name="请求" value="6617" direction="Client">
+    <param name="quartsId" type="String" size="20" remark="">金矿Id</param>
+  </command>
+  <command en_name="GC_MAINMAP_QUARTS_COLLECT" cn_name="返回" value="6618" direction="Server">
+    <param name="quartsId" type="String" size="20" remark="">金矿Id</param>
+  </command>
+  <command en_name="CG_MAINMAP_QUARTS_GARRISON" cn_name="请求" value="6619" direction="Client">
+    <param name="quartsId" type="String" size="20" remark="">金矿Id</param>
+    <param name="generalId" type="int" size="4" remark="">主将id</param>
+  </command>
+  <command en_name="GC_MAINMAP_QUARTS_GARRISON" cn_name="返回" value="6620" direction="Server">
+    <param name="quartsId" type="String" size="20" remark="">金矿Id</param>
+    <param name="goldTurnout" type="int" size="4" remark="">每小时金币产量</param>
+    <param name="generalId" type="int" size="4" remark="">主将id</param>
+  </command>
+  <command en_name="CG_MAINMAP_QUARTS_DODGE" cn_name="请求" value="6621" direction="Client">
+    <param name="quartsId" type="String" size="20" remark="">金矿Id</param>
+    <param name="generalId" type="int" size="4" remark="">主将id</param>
+  </command>
+  <command en_name="GC_MAINMAP_QUARTS_DODGE" cn_name="返回" value="6622" direction="Server">
+    <param name="quartsId" type="String" size="20" remark="">金矿Id</param>
+    <param name="goldTurnout" type="int" size="4" remark="">每小时金石产量</param>
+    <param name="generalId" type="int" size="4" remark="">主将id</param>
+  </command>
+  <command en_name="GC_MAINMAP_QUARTS_PUSH" cn_name="推送" value="6623" direction="Server">
+    <param name="quartsId" type="String" size="20" remark="">金矿Id</param>
+    <param name="currGold" type="int" size="4" remark="">当前金币量</param>
+  </command>
+  <command en_name="CG_MAINMAP_CORPS_VGTK" cn_name="请求" value="6631" direction="Client">
+    <param name="coordsId" type="int" size="4" remark="">地图坐标id</param>
+    <param name="corpsId" type="int" size="4" remark="">兵种类型id</param>
+  </command>
+  <command en_name="GC_MAINMAP_CORPS_VGTK" cn_name="返回" value="6632" direction="Server">
+    <param name="coordsId" type="int" size="4" remark="">地图坐标id</param>
+  </command>
+  <command en_name="CG_MAINMAP_CORPS_FAILED" cn_name="请求" value="6633" direction="Client">
+    <param name="coordsId" type="int" size="4" remark="">地图坐标id</param>
+    <param name="corpsId" type="int" size="4" remark="">兵种类型id</param>
+  </command>
+  <command en_name="GC_MAINMAP_CORPS_FAILED" cn_name="返回" value="6634" direction="Server">
+    <param name="coordsId" type="int" size="4" remark="">地图坐标id</param>
+    <param name="encore" type="byte" size="1" remark="">是否可以再来一次0否1是</param>
+  </command>
+  <command en_name="CG_MAINMAP_CORPS_WIN" cn_name="请求" value="6635" direction="Client">
+    <param name="coordsId" type="int" size="4" remark="">地图坐标id</param>
+    <param name="corpsId" type="int" size="4" remark="">兵种类型id</param>
+  </command>
+  <command en_name="GC_MAINMAP_CORPS_WIN" cn_name="返回" value="6636" direction="Server">
+    <param name="coordsId" type="int" size="4" remark="">地图坐标id</param>
+    <param name="corpsAwardList" type="listCorpsAward" size="2" remark="" text="奖励物品列表">
+      <param name="awardId" type="long" size="8" remark="">奖励物品id</param>
+      <param name="awardType" type="int" size="4" remark="">奖励类型</param>
+      <param name="num" type="int" size="4" remark="">数量</param>
+    </param>
+  </command>
+  <command en_name="CG_MAINMAP_CORPS_CANCEL" cn_name="请求" value="6637" direction="Client">
+    <param name="coordsId" type="int" size="4" remark="">地图坐标id</param>
+    <param name="corpsId" type="int" size="4" remark="">兵种类型id</param>
+  </command>
+  <command en_name="GC_MAINMAP_CORPS_CANCEL" cn_name="返回" value="6638" direction="Server">
+    <param name="coordsId" type="int" size="4" remark="">地图坐标id</param>
+  </command>
+  <command en_name="GC_MAINMAP_CORPS_PUSH" cn_name="推送" value="6639" direction="Server">
+    <param name="corpsList" type="listCorps" size="2" remark="" text="兵种列表">
+      <param name="coordsId" type="int" size="4" remark="">地图坐标id</param>
+      <param name="corpsId" type="int" size="4" remark="">兵种类型id</param>
+      <param name="coordsX" type="float" size="4" remark="">兵种坐标X</param>
+      <param name="coordsY" type="float" size="4" remark="">兵种坐标Y</param>
+      <param name="coordsZ" type="float" size="4" remark="">兵种坐标Z</param>
+    </param>
+  </command>
+</model>

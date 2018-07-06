@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<model name="LOGINMODEL" as_class="LoginProxy" value="1001" desc="登陆服登陆模型">
+  <command en_name="GC_AUTH_SESSION" cn_name="推送" value="100" direction="Server">
+    <param name="session" type="int" size="4" remark="">Session ID</param>
+  </command>
+  <command en_name="CG_CONN_AUTH" cn_name="接收" value="101" direction="Client">
+    <param name="code" type="String" size="8" remark="">授权加密代码</param>
+  </command>
+  <command en_name="GC_CONN_AUTH" cn_name="返回" value="102" direction="Server"/>
+  <command en_name="CG_LOGIN" cn_name="接收" value="103" direction="Client">
+    <param name="type" type="short" size="2" remark="">是否登陆成功</param>
+    <param name="x" type="int" size="4" remark="">玩家进入场景后，所在的x坐标</param>
+    <param name="y" type="int" size="4" remark="">玩家进入场景后，所在的y坐标</param>
+  </command>
+  <command en_name="GC_LOGIN" cn_name="返回" value="104" direction="Server">
+    <param name="pid" type="long" size="8" remark="">玩家id</param>
+    <param name="x" type="int" size="4" remark="">坐标x</param>
+    <param name="y" type="int" size="4" remark="">坐标y</param>
+  </command>
+  <command en_name="CG_SERVER_ID" cn_name="接收" value="105" direction="Client">
+    <param name="id" type="short" size="2" remark="">服务器ID</param>
+  </command>
+  <command en_name="GC_SERVER_ID" cn_name="返回" value="106" direction="Server">
+    <param name="serverId" type="short" size="2" remark="">服务器ID</param>
+    <param name="ip" type="String" size="20" remark="">服务器IP</param>
+    <param name="port" type="short" size="2" remark="">服务器端口</param>
+    <param name="key1" type="int" size="4" remark="">秘钥1</param>
+    <param name="key2" type="int" size="4" remark="">秘钥2</param>
+  </command>
+</model>

@@ -1,0 +1,14 @@
+
+class TestArray extends SappObject {
+
+}
+begin{
+	a = [1,2,3,4,[23,34,45],TestArray.new()];
+	SappSystem.print("定义数组:a = [1,2,3,4,[23,34,45],TestArray.new()]");
+	SappSystem.print("\n打印:a[0]="+a[0]);
+	SappSystem.print("\n打印:a[4]="+a[4]);
+	SappSystem.print("\n打印:a[4][0]="+a[4][0]);
+	a[4][1]=SappObject.new();
+	SappSystem.print("\n赋值:a[4][1]=SappObject.new()");
+	SappSystem.print("\n打印:a[4][1]="+a[4][1]);
+}

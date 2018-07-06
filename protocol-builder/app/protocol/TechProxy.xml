@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<model name="TECHMODEL" as_class="TechProxy" value="2015" desc="科技模块">
+  <command en_name="CG_TECH_JOIN" cn_name="请求" value="6701" direction="Client"/>
+  <command en_name="GC_TECH_JOIN" cn_name="返回" value="6702" direction="Server">
+    <param name="techList" type="listTech" size="2" remark="" text="玩家科技列表">
+      <param name="techId" type="long" size="8" remark="">科技id</param>
+      <param name="stat" type="byte" size="1" remark="">科技状态1.未开放2可升级3已升级</param>
+    </param>
+    <param name="recordType" type="byte" size="1" remark="">上次科技类型1进攻2防守3辅助</param>
+    <param name="recordTechId" type="long" size="8" remark="">上次操作科技id</param>
+    <param name="resetGold" type="int" size="4" remark="">重置需要金币</param>
+    <param name="skillPoint" type="int" size="4" remark="">剩余科技点</param>
+  </command>
+  <command en_name="CG_TECH_RECORD" cn_name="请求" value="6703" direction="Client">
+    <param name="techId" type="long" size="8" remark="">科技id</param>
+    <param name="type" type="byte" size="1" remark="">科技类型1进攻2防守3辅助</param>
+  </command>
+  <command en_name="GC_TECH_RECORD" cn_name="返回" value="6704" direction="Server"/>
+  <command en_name="CG_TECH_UPGRADE" cn_name="请求" value="6705" direction="Client">
+    <param name="techId" type="long" size="8" remark="">科技id</param>
+  </command>
+  <command en_name="GC_TECH_UPGRADE" cn_name="返回" value="6706" direction="Server">
+    <param name="techId" type="long" size="8" remark="">升级的科技id</param>
+    <param name="techList" type="listTech" size="2" remark="" text="玩家可升级科技列表">
+      <param name="techId" type="long" size="8" remark="">科技id</param>
+      <param name="stat" type="byte" size="1" remark="">科技状态1.未开放2可升级3已升级</param>
+    </param>
+    <param name="resetGold" type="int" size="4" remark="">重置需要金币</param>
+  </command>
+  <command en_name="CG_TECH_RESET" cn_name="请求" value="6707" direction="Client"/>
+  <command en_name="GC_TECH_RESET" cn_name="返回" value="6708" direction="Server">
+    <param name="techList" type="listTech" size="2" remark="" text="玩家可升级科技列表">
+      <param name="techId" type="long" size="8" remark="">科技id</param>
+      <param name="stat" type="byte" size="1" remark="">科技状态1.未开放2可升级3已升级</param>
+    </param>
+    <param name="skillPoint" type="int" size="4" remark="">剩余科技点</param>
+  </command>
+  <command en_name="CG_TECH_CORPS_LIST" cn_name="请求" value="6709" direction="Client"/>
+  <command en_name="GC_TECH_CORPS_LIST" cn_name="返回" value="6710" direction="Server">
+    <param name="corpsTechList" type="listCorpsTech" size="2" remark="" text="玩家可升级兵种科技列表">
+      <param name="corpsTechId" type="long" size="8" remark="">兵种科技id</param>
+      <param name="stat" type="byte" size="1" remark="">科技状态1.未开放2可升级3已升级</param>
+    </param>
+  </command>
+  <command en_name="CG_TECH_OPEN_CORPS" cn_name="请求" value="6711" direction="Client">
+    <param name="corpsTechId" type="long" size="8" remark="">兵种科技id</param>
+  </command>
+  <command en_name="GC_TECH_OPEN_CORPS" cn_name="返回" value="6712" direction="Server">
+    <param name="corpsTechId" type="long" size="8" remark="">请求兵种科技id</param>
+    <param name="corpsTechList" type="listCorpsTech" size="2" remark="" text="玩家可升级兵种科技列表">
+      <param name="corpsTechId" type="long" size="8" remark="">兵种科技id</param>
+      <param name="stat" type="byte" size="1" remark="">科技状态1.未开放2可升级3已升级</param>
+    </param>
+  </command>
+</model>

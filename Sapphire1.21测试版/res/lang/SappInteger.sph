@@ -1,0 +1,165 @@
+#整数类
+native final class SappInteger extends SappObject {
+
+	native [SappInteger]create(one<?SappJava);
+	#字符串字面值 整数如:12 对应的对象SappInteger方法。
+	
+	####################关系方法##########################
+	def <(one){
+		return less(this,one);
+	}
+	native [SappBoolean]less(obj<?SappInteger,one<?SappDecimal||SappInteger);
+	#<
+	
+	def <=(one){
+		return lessequal(this,one);
+	}
+	native [SappBoolean]lessequal(obj<?SappInteger,one<?SappDecimal||SappInteger);
+	#<=
+	
+	def >(one){
+		return more(this,one);
+	}
+	native [SappBoolean]more(obj<?SappInteger,one<?SappDecimal||SappInteger);
+	#>
+	
+	def >=(one){
+		return moreequal(this,one);
+	}
+	native [SappBoolean]moreequal(obj<?SappInteger,one<?SappDecimal||SappInteger);
+	#>=
+	
+	def ==(one){
+		return equal(this,one);
+	}
+	native [SappBoolean]equal(obj<?SappInteger,one<?SappInteger||SappDecimal);
+	#==
+	
+	def !=(one){
+		return unequal(this,one);
+	}
+	native [SappBoolean]unequal(obj<?SappInteger,one<?SappInteger||SappDecimal);
+	#!=
+	
+	######################################################
+	
+	def +(one){
+	    if(one<?SappDecimal){
+	    	return toDecimal()+one;
+	    }else if(one<?SappInteger){
+	    	return addition(this,one);
+	    }else if(one<?SappString){
+	    	return toString()+one;
+	    }else{
+	    	throw "没有这种类型的参数";
+	    }
+	}
+	#+
+	
+	def -(one){
+	 if(one<?SappDecimal){
+	    	return toDecimal()-one;
+	    }else if(one<?SappInteger){
+	    	return subtraction(this,one);
+	    }else{
+	    	throw "没有这种类型的参数";
+	    }
+	}
+	#-
+	
+	def *(one){
+	 if(one<?SappDecimal){
+	    	return toDecimal()*one;
+	    }else if(one<?SappInteger){
+	    	return multiplication(this,one);
+	    }else{
+	    	throw "没有这种类型的参数";
+	    }
+	}
+	#*
+	
+	def /(one){
+	 if(one<?SappDecimal){
+	    	return toDecimal()/one;
+	    }else if(one<?SappInteger){
+	   		if(this%one!=0){
+				return toDecimal()/one;
+			}
+	    	return division(this,one);
+	    }else{
+	    	throw "没有这种类型的参数";
+	    }
+	}
+	#/
+	
+	def %(one){
+	 if(one<?SappDecimal){
+	    	return toDecimal()%one;
+	    }else if(one<?SappInteger){
+	    	return complementation(this,one);
+	    }else{
+	    	throw "没有这种类型的参数";
+	    }
+	}
+	#%
+	
+	native [SappInteger]addition(obj<?SappInteger,one<?SappDecimal||SappInteger);
+	#+
+	
+	native [SappInteger]subtraction(obj<?SappInteger,one<?SappDecimal||SappInteger);
+	#-
+	
+	native [SappInteger]multiplication(obj<?SappInteger,one<?SappDecimal||SappInteger);
+	#*;
+	
+	native [SappInteger]division(obj<?SappInteger,one<?SappDecimal||SappInteger);
+	#/
+	
+	native [SappInteger]complementation(obj<?SappInteger,one<?SappDecimal||SappInteger);
+	#%
+	#############################################################
+	def toDecimal(){
+		return N_toDecimal(this);
+	}
+	native [SappDecimal]N_toDecimal(obj<?SappInteger);
+	#转换为小数
+	
+	def toString(){
+		return N_toString(this);
+	}
+	native [SappString]N_toString(obj<?SappInteger);
+	#toString
+	
+	def toObjectString(){
+		return super.toString();
+	}
+	
+	#类型字符串
+	
+	def ++(one){
+		if(one==1){#前置
+			this = this + 1;
+			return this;
+		}else{
+			this = this + 1;
+			return this - 1;
+		}
+	}
+	#++运算符
+	
+	def --(one){
+		if(one == 1){#前置
+			this = this - 1;
+			return this;
+		}else{
+			this = this - 1;
+			return this + 1;
+		}
+	}
+	#--运算符
+	
+	def reverse(){
+		return 0-this;
+	}
+	#相反数
+}

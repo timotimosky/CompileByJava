@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<model name="CARDMODEL" as_class="CardProxy" value="2007" desc="卡牌模块">
+  <command en_name="CG_CARD_INFO" cn_name="请求" value="6030" direction="Client"/>
+  <command en_name="GC_CARD_INFO" cn_name="返回" value="6031" direction="Server">
+    <param name="cardList" type="listCard" size="2" remark="" text="卡牌列表">
+      <param name="cardModelId" type="int" size="4" remark="">卡牌原型ID</param>
+      <param name="cardGuid" type="long" size="8" remark="">卡牌动态ID</param>
+      <param name="gemList" type="ilistGem" size="2" remark="" text="宝石列表">
+        <param name="position" type="byte" size="1" remark="">宝石位置</param>
+        <param name="gemType" type="byte" size="1" remark="">宝石类型</param>
+      </param>
+    </param>
+  </command>
+  <command en_name="CG_EMBATTLE" cn_name="请求" value="6032" direction="Client">
+    <param name="generalId" type="int" size="4" remark="">主将ID</param>
+  </command>
+  <command en_name="GC_EMBATTLE" cn_name="返回" value="6033" direction="Server">
+    <param name="generalId" type="int" size="4" remark="">主将ID</param>
+    <param name="cardList" type="listCardBack" size="2" remark="" text="卡牌列表">
+      <param name="cardGuid" type="long" size="8" remark="">卡牌动态ID</param>
+    </param>
+  </command>
+  <command en_name="CG_CARD_SELL" cn_name="请求" value="6034" direction="Client">
+    <param name="cardGuid" type="long" size="8" remark="">出售卡牌动态Id</param>
+  </command>
+  <command en_name="GC_CARD_SELL" cn_name="返回" value="6035" direction="Server">
+    <param name="cardGuid" type="long" size="8" remark="">出售卡牌动态Id</param>
+  </command>
+  <command en_name="CG_CARD_BATH_SELL" cn_name="请求" value="6040" direction="Client">
+    <param name="cardIdList" type="listCardIdReuqest" size="2" remark="" text="出售卡牌动态ID集合">
+      <param name="cardGuid" type="long" size="8" remark="">出售卡牌动态Id</param>
+    </param>
+  </command>
+  <command en_name="GC_CARD_BATH_SELL" cn_name="返回" value="6041" direction="Server">
+    <param name="cardIdList" type="listCardId" size="2" remark="" text="出售卡牌动态ID集合">
+      <param name="cardGuid" type="long" size="8" remark="">出售卡牌动态Id</param>
+    </param>
+  </command>
+  <command en_name="CG_CARD_DEAL" cn_name="请求" value="6036" direction="Client">
+    <param name="type" type="byte" size="1" remark="">发牌类型</param>
+  </command>
+  <command en_name="GC_CARD_DEAL" cn_name="返回" value="6037" direction="Server">
+    <param name="cardList" type="listCard" size="2" remark="" text="卡牌列表">
+      <param name="cardModelId" type="int" size="4" remark="">卡牌原型ID</param>
+      <param name="cardGuid" type="long" size="8" remark="">卡牌动态ID</param>
+      <param name="gemList" type="ilistGem" size="2" remark="" text="宝石列表">
+        <param name="position" type="byte" size="1" remark="">宝石位置</param>
+        <param name="gemType" type="byte" size="1" remark="">宝石类型</param>
+      </param>
+    </param>
+  </command>
+  <command en_name="CG_EMBATTLE_UPDATE" cn_name="请求" value="6038" direction="Client">
+    <param name="generalId" type="int" size="4" remark="">主将ID</param>
+    <param name="cardList" type="listCardRequest" size="2" remark="" text="卡牌集合">
+      <param name="cardGuid" type="long" size="8" remark="">卡牌动态ID</param>
+    </param>
+  </command>
+  <command en_name="GC_EMBATTLE_UPDATE" cn_name="返回" value="6039" direction="Server">
+    <param name="generalId" type="int" size="4" remark="">主将ID</param>
+    <param name="cardList" type="listCardBack" size="2" remark="" text="卡牌集合">
+      <param name="cardGuid" type="long" size="8" remark="">卡牌动态ID</param>
+    </param>
+  </command>
+  <command en_name="GC_ADD_CARD" cn_name="推送" value="6042" direction="Server">
+    <param name="cardModelId" type="int" size="4" remark="">卡牌原型ID</param>
+    <param name="cardGuid" type="long" size="8" remark="">卡牌动态ID</param>
+    <param name="gemList" type="listGem" size="2" remark="" text="宝石列表">
+      <param name="position" type="byte" size="1" remark="">宝石位置</param>
+      <param name="gemType" type="byte" size="1" remark="">宝石类型</param>
+    </param>
+  </command>
+</model>

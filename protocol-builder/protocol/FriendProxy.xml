@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<model name="FRIENDMODEL" as_class="FriendProxy" value="2009" desc="好友模块">
+  <command en_name="CG_FRIEND" cn_name="请求" value="6080" direction="Client"/>
+  <command en_name="GC_FRIEND" cn_name="返回" value="6081" direction="Server">
+    <param name="friendList" type="listFriend" size="2" remark="" text="好友列表">
+      <param name="playerId" type="long" size="8" remark="">好友ID</param>
+      <param name="playerName" type="String" size="40" remark="">好友名称</param>
+      <param name="basis" type="int" size="4" remark="">基础分</param>
+      <param name="country" type="byte" size="1" remark="">国籍</param>
+      <param name="sex" type="byte" size="1" remark="">性别</param>
+      <param name="icon" type="byte" size="1" remark="">头像</param>
+      <param name="iconUrl" type="String" size="70" remark="">上传头像路径</param>
+      <param name="potency" type="int" size="4" remark="">战斗力</param>
+      <param name="onLineState" type="byte" size="1" remark="">是否在线 (0在线, l不在线)</param>
+      <param name="evaluateList" type="iListEvaluate" size="2" remark="" text="评价">
+        <param name="type" type="byte" size="1" remark="">评价类型</param>
+        <param name="num" type="int" size="4" remark="">评价次数</param>
+      </param>
+    </param>
+    <param name="shieldFriendList" type="listFriend" size="2" remark="" text="屏蔽列表">
+      <param name="playerId" type="long" size="8" remark="">好友ID</param>
+      <param name="playerName" type="String" size="40" remark="">好友名称</param>
+      <param name="basis" type="int" size="4" remark="">基础分</param>
+      <param name="country" type="byte" size="1" remark="">国籍</param>
+      <param name="sex" type="byte" size="1" remark="">性别</param>
+      <param name="icon" type="byte" size="1" remark="">头像</param>
+      <param name="iconUrl" type="String" size="70" remark="">上传头像路径</param>
+      <param name="potency" type="int" size="4" remark="">战斗力</param>
+      <param name="onLineState" type="byte" size="1" remark="">是否在线 (0在线, l不在线)</param>
+      <param name="evaluateList" type="iListEvaluate" size="2" remark="" text="评价">
+        <param name="type" type="byte" size="1" remark="">评价类型</param>
+        <param name="num" type="int" size="4" remark="">评价次数</param>
+      </param>
+    </param>
+  </command>
+  <command en_name="GC_FRIEND_ON_LINE" cn_name="推送" value="6079" direction="Server">
+    <param name="playerId" type="long" size="8" remark="">角色ID</param>
+    <param name="playerName" type="String" size="40" remark="">角色名称</param>
+    <param name="basis" type="int" size="4" remark="">基础分</param>
+    <param name="country" type="byte" size="1" remark="">国籍</param>
+    <param name="sex" type="byte" size="1" remark="">性别</param>
+    <param name="icon" type="byte" size="1" remark="">头像</param>
+    <param name="iconUrl" type="String" size="70" remark="">上传头像路径</param>
+    <param name="potency" type="int" size="4" remark="">战斗力</param>
+    <param name="onLineState" type="byte" size="1" remark="">是否在线 (0在线, l不在线)</param>
+    <param name="evaluateList" type="listEvaluate" size="2" remark="" text="评价">
+      <param name="type" type="byte" size="1" remark="">评价类型</param>
+      <param name="num" type="int" size="4" remark="">评价次数</param>
+    </param>
+  </command>
+  <command en_name="GC_FRIEND_DOWN_LINE" cn_name="推送" value="6078" direction="Server">
+    <param name="playerId" type="long" size="8" remark="">角色ID</param>
+  </command>
+  <command en_name="CG_FRIEND_ADD" cn_name="请求" value="6082" direction="Client">
+    <param name="playerId" type="long" size="8" remark="">对方角色ID</param>
+  </command>
+  <command en_name="GC_FRIEND_ADD" cn_name="返回" value="6083" direction="Server"/>
+  <command en_name="GC_FRIEND_DECEIVE_ADD" cn_name="推送" value="6200" direction="Server">
+    <param name="playerId" type="long" size="8" remark="">发起添加好友角色ID</param>
+    <param name="playerName" type="String" size="40" remark="">发起添加好友角色名称</param>
+    <param name="startTime" type="long" size="8" remark="">开始时间</param>
+    <param name="endTime" type="long" size="8" remark="">结束时间</param>
+  </command>
+  <command en_name="CG_ADD_AGREE" cn_name="请求" value="6084" direction="Client">
+    <param name="playerId" type="long" size="8" remark="">发起添加好友角色ID</param>
+  </command>
+  <command en_name="GC_ADD_AGREE" cn_name="返回" value="6085" direction="Server">
+    <param name="playerId" type="long" size="8" remark="">好友ID</param>
+    <param name="playerName" type="String" size="40" remark="">好友名称</param>
+    <param name="basis" type="int" size="4" remark="">基础分</param>
+    <param name="country" type="byte" size="1" remark="">国籍</param>
+    <param name="sex" type="byte" size="1" remark="">性别</param>
+    <param name="icon" type="byte" size="1" remark="">头像</param>
+    <param name="iconUrl" type="String" size="70" remark="">上传头像路径</param>
+    <param name="potency" type="int" size="4" remark="">战斗力</param>
+    <param name="onLineState" type="byte" size="1" remark="">是否在线 (0在线, l不在线)</param>
+    <param name="evaluateList" type="listEvaluate" size="2" remark="" text="评价">
+      <param name="type" type="byte" size="1" remark="">评价类型</param>
+      <param name="num" type="int" size="4" remark="">评价次数</param>
+    </param>
+  </command>
+  <command en_name="GC_ADD_AGREE_SPONSOR" cn_name="推送" value="6201" direction="Server">
+    <param name="playerId" type="long" size="8" remark="">接受添加好友角色ID</param>
+    <param name="playerName" type="String" size="40" remark="">接受添加好友角色名称</param>
+    <param name="basis" type="int" size="4" remark="">基础分</param>
+    <param name="country" type="byte" size="1" remark="">国籍</param>
+    <param name="sex" type="byte" size="1" remark="">性别</param>
+    <param name="icon" type="byte" size="1" remark="">头像</param>
+    <param name="iconUrl" type="String" size="70" remark="">上传头像路径</param>
+    <param name="potency" type="int" size="4" remark="">战斗力</param>
+    <param name="onLineState" type="byte" size="1" remark="">是否在线 (0在线, l不在线)</param>
+    <param name="evaluateList" type="listEvaluate" size="2" remark="" text="评价">
+      <param name="type" type="byte" size="1" remark="">评价类型</param>
+      <param name="num" type="int" size="4" remark="">评价次数</param>
+    </param>
+  </command>
+  <command en_name="CG_ADD_REFUSE" cn_name="请求" value="6086" direction="Client">
+    <param name="playerId" type="long" size="8" remark="">接受添加好友角色ID</param>
+  </command>
+  <command en_name="GC_ADD_REFUSE" cn_name="返回" value="6087" direction="Server"/>
+  <command en_name="GC_ADD_REFUSE_SPONSOR" cn_name="推送" value="6202" direction="Server">
+    <param name="playerId" type="long" size="8" remark="">拒绝添加好友角色ID</param>
+    <param name="playerName" type="String" size="40" remark="">拒绝添加好友角色名称</param>
+  </command>
+  <command en_name="CG_ADD_FEEDBACK" cn_name="请求" value="6088" direction="Client">
+    <param name="playerId" type="long" size="8" remark="">发起添加好友ID</param>
+  </command>
+  <command en_name="GC_ADD_FEEDBACK" cn_name="返回" value="6089" direction="Server"/>
+  <command en_name="CG_FRIEND_ADD_LIST" cn_name="请求" value="6090" direction="Client"/>
+  <command en_name="GC_FRIEND_ADD_LIST" cn_name="返回" value="6091" direction="Server">
+    <param name="friendMsgList" type="listFriendMsg" size="2" remark="" text="添加好友消息列表">
+      <param name="playerId" type="long" size="8" remark="">发起添加好友ID</param>
+      <param name="playerName" type="String" size="40" remark="">发起添加好友的名称</param>
+      <param name="icon" type="int" size="4" remark="">头像</param>
+      <param name="iconUrl" type="String" size="70" remark="">上传头像路径</param>
+      <param name="sex" type="byte" size="1" remark="">性别</param>
+    </param>
+  </command>
+  <command en_name="CG_FRIEND_REMOVE" cn_name="请求" value="6096" direction="Client">
+    <param name="playerId" type="long" size="8" remark="">删除好友ID</param>
+  </command>
+  <command en_name="GC_FRIEND_REMOVE" cn_name="返回" value="6097" direction="Server">
+    <param name="playerId" type="long" size="8" remark="">删除好友ID</param>
+  </command>
+  <command en_name="GC_REMOVE_FRIEND" cn_name="推送" value="6206" direction="Server">
+    <param name="playerId" type="long" size="8" remark="">删除好友ID</param>
+  </command>
+  <command en_name="CG_FRIEND_PVP" cn_name="请求" value="6098" direction="Client">
+    <param name="playerId" type="long" size="8" remark="">对战好友ID</param>
+  </command>
+  <command en_name="GC_FRIEND_PVP" cn_name="返回" value="6099" direction="Server"/>
+  <command en_name="GC_FRIEND_RECEIVE_PVP" cn_name="推送" value="6203" direction="Server">
+    <param name="playerId" type="long" size="8" remark="">对战好友ID</param>
+    <param name="startTime" type="long" size="8" remark="">开始发起时间</param>
+    <param name="endTime" type="long" size="8" remark="">结束发起时间</param>
+  </command>
+  <command en_name="CG_FRIEND_PVP_FEEDBACK" cn_name="请求" value="6120" direction="Client">
+    <param name="playerId" type="long" size="8" remark="">发起添加好友ID</param>
+  </command>
+  <command en_name="GC_FRIEND_PVP_FEEDBACK" cn_name="返回" value="6121" direction="Server"/>
+  <command en_name="GC_FRIEND_REFUSE_PVP" cn_name="推送" value="6208" direction="Server">
+    <param name="playerId" type="long" size="8" remark="">对战好友ID</param>
+  </command>
+  <command en_name="CG_FRIEND_PVP_AGREE" cn_name="请求" value="6100" direction="Client">
+    <param name="playerId" type="long" size="8" remark="">对战好友ID</param>
+  </command>
+  <command en_name="GC_FRIEND_PVP_AGREE" cn_name="返回" value="6101" direction="Server"/>
+  <command en_name="GC_FRIEND_AGREE_PVP" cn_name="推送" value="6207" direction="Server">
+    <param name="playerId" type="long" size="8" remark="">对战好友ID</param>
+  </command>
+  <command en_name="CG_FRIEND_PVP_REFUSE" cn_name="请求" value="6102" direction="Client">
+    <param name="playerId" type="long" size="8" remark="">对战好友ID</param>
+  </command>
+  <command en_name="GC_FRIEND_PVP_REFUSE" cn_name="返回" value="6103" direction="Server"/>
+  <command en_name="GC_PVP_REFUSE" cn_name="推送" value="6204" direction="Server">
+    <param name="playerId" type="long" size="8" remark="">对战好友ID</param>
+  </command>
+  <command en_name="CG_FRIEND_EMBATTLE" cn_name="请求" value="6104" direction="Client">
+    <param name="playerId" type="long" size="8" remark="">布阵好友ID</param>
+  </command>
+  <command en_name="GC_FRIEND_EMBATTLE" cn_name="返回" value="6105" direction="Server">
+    <param name="playerId" type="long" size="8" remark="">布阵好友ID</param>
+    <param name="generalModelId" type="int" size="4" remark="">出战主将原型ID</param>
+    <param name="cardList" type="listFriendCard" size="2" remark="" text="好友布阵列表">
+      <param name="cardGuid" type="long" size="8" remark="">卡牌动态ID</param>
+      <param name="cardModelId" type="int" size="4" remark="">卡牌原型ID</param>
+      <param name="gemList" type="iListGem" size="2" remark="" text="宝石位置集合">
+        <param name="position" type="byte" size="1" remark="">宝石位置</param>
+        <param name="gemType" type="byte" size="1" remark="">宝石类型</param>
+      </param>
+    </param>
+  </command>
+  <command en_name="CG_FRIEND_PVP_ALL_REFUSE" cn_name="请求" value="6110" direction="Client"/>
+  <command en_name="GC_FRIEND_PVP_ALL_REFUSE" cn_name="返回" value="6111" direction="Server"/>
+  <command en_name="CG_FRIEND_FIND" cn_name="请求" value="6112" direction="Client">
+    <param name="playerName" type="String" size="20" remark="">查找名称</param>
+  </command>
+  <command en_name="GC_FRIEND_FIND" cn_name="返回" value="6113" direction="Server">
+    <param name="playerId" type="long" size="8" remark="">好友ID</param>
+    <param name="playerName" type="String" size="40" remark="">好友名称</param>
+    <param name="basis" type="int" size="4" remark="">基础分</param>
+    <param name="country" type="byte" size="1" remark="">国籍</param>
+    <param name="sex" type="byte" size="1" remark="">性别</param>
+    <param name="icon" type="byte" size="1" remark="">头像</param>
+    <param name="iconUrl" type="String" size="70" remark="">上传头像路径</param>
+    <param name="potency" type="int" size="4" remark="">战斗力</param>
+    <param name="onLineState" type="byte" size="1" remark="">是否在线 (0在线, l不在线)</param>
+    <param name="signature" type="String" size="70" remark="">个性签名</param>
+    <param name="evaluateList" type="listEvaluate" size="2" remark="" text="评价">
+      <param name="type" type="byte" size="1" remark="">评价类型</param>
+      <param name="num" type="int" size="4" remark="">评价次数</param>
+    </param>
+  </command>
+  <command en_name="CG_FRIEND_SHIELD_ADD" cn_name="请求" value="6114" direction="Client">
+    <param name="playerId" type="long" size="8" remark="">角色ID</param>
+  </command>
+  <command en_name="GC_FRIEND_SHIELD_ADD" cn_name="返回" value="6115" direction="Server">
+    <param name="playerId" type="long" size="8" remark="">好友ID</param>
+    <param name="playerName" type="String" size="40" remark="">好友名称</param>
+    <param name="basis" type="int" size="4" remark="">基础分</param>
+    <param name="country" type="byte" size="1" remark="">国籍</param>
+    <param name="sex" type="byte" size="1" remark="">性别</param>
+    <param name="icon" type="byte" size="1" remark="">头像</param>
+    <param name="iconUrl" type="String" size="70" remark="">上传头像路径</param>
+    <param name="potency" type="int" size="4" remark="">战斗力</param>
+    <param name="onLineState" type="byte" size="1" remark="">是否在线 (0在线, l不在线)</param>
+    <param name="evaluateList" type="listEvaluate" size="2" remark="" text="评价">
+      <param name="type" type="byte" size="1" remark="">评价类型</param>
+      <param name="num" type="int" size="4" remark="">评价次数</param>
+    </param>
+  </command>
+  <command en_name="CG_FRIEND_SHIELD_REMOVE" cn_name="请求" value="6116" direction="Client">
+    <param name="playerId" type="long" size="8" remark="">角色ID</param>
+  </command>
+  <command en_name="GC_FRIEND_SHIELD_REMOVE" cn_name="返回" value="6117" direction="Server">
+    <param name="playerId" type="long" size="8" remark="">角色ID</param>
+  </command>
+  <command en_name="CG_SHIELD_REMOVE_All" cn_name="请求" value="6118" direction="Client"/>
+  <command en_name="GC_SHIELD_REMOVE_All" cn_name="返回" value="6119" direction="Server"/>
+</model>

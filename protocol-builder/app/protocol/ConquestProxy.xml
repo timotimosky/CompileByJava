@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<model name="CONQUESTMODEL" as_class="ConquestProxy" value="6" desc="匹配模块">
+  <command en_name="CG_CONQUEST_INFO" cn_name="请求" value="6001" direction="Client">
+    <param name="generalId" type="int" size="4" remark="">人物ID</param>
+  </command>
+  <command en_name="GC_CONQUEST_INFO" cn_name="返回" value="6002" direction="Server">
+    <param name="basis" type="int" size="4" remark="">基础分</param>
+    <param name="tankerType" type="int" size="4" remark="">所使用的坦克类型</param>
+    <param name="generalId" type="int" size="4" remark="">人物ID</param>
+  </command>
+  <command en_name="CG_ADD_MATCH" cn_name="请求" value="6003" direction="Client">
+    <param name="generalId" type="int" size="4" remark="">主将ID</param>
+    <param name="succorId" type="long" size="8" remark="">援军ID</param>
+    <param name="reliefId" type="int" size="4" remark="">援军技能动态ID</param>
+  </command>
+  <command en_name="GC_MATCH" cn_name="返回" value="6004" direction="Server"/>
+  <command en_name="CG_REMOVE_MATCH" cn_name="请求" value="6005" direction="Client"/>
+  <command en_name="GC_REMOVE_MATCH" cn_name="返回" value="6006" direction="Server"/>
+  <command en_name="CG_CHEST" cn_name="请求" value="6007" direction="Client">
+    <param name="chestId" type="byte" size="1" remark="">竞技宝箱类型ID</param>
+  </command>
+  <command en_name="GC_CHEST" cn_name="返回" value="6008" direction="Server">
+    <param name="chestId" type="byte" size="1" remark="">竞技宝箱类型ID</param>
+  </command>
+  <command en_name="CG_BONUS" cn_name="请求" value="6009" direction="Client"/>
+  <command en_name="GC_BONUS" cn_name="返回" value="6010" direction="Server"/>
+  <command en_name="GC_UPDATE_BONUS" cn_name="推送" value="6011" direction="Server">
+    <param name="bonusList" type="listBonus" size="2" remark="" text="预估奖励列表">
+      <param name="bonusId" type="byte" size="1" remark="">预估奖励ID</param>
+    </param>
+  </command>
+  <command en_name="GC_AWARD_TIMES" cn_name="推送" value="6012" direction="Server">
+    <param name="times" type="short" size="2" remark="">倍数下标</param>
+  </command>
+  <command en_name="GC_WIN_POINT" cn_name="推送" value="6013" direction="Server">
+    <param name="winPointList" type="listWinPoint" size="2" remark="" text="国家胜点列表">
+      <param name="countryId" type="byte" size="1" remark="">国家ID</param>
+      <param name="winPoint" type="short" size="2" remark="">国家胜点</param>
+    </param>
+  </command>
+  <command en_name="GC_OPPONENT_INFO" cn_name="推送" value="6014" direction="Server">
+    <param name="basis" type="int" size="4" remark="">基础分, 段位分</param>
+    <param name="playerName" type="String" size="20" remark="">角色名称</param>
+    <param name="icon" type="short" size="2" remark="">角色头像ID</param>
+    <param name="iconUrl" type="String" size="30" remark="">角色头像路径(预留)</param>
+    <param name="generalModelId" type="int" size="4" remark="">主将原型ID</param>
+  </command>
+  <command en_name="GC_START_PVP" cn_name="推送" value="6015" direction="Server"/>
+</model>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<model name="SHOPMODEL" as_class="ShopProxy" value="2018" desc="商城模块">
+  <command en_name="CG_SHOP_JOIN" cn_name="请求" value="7001" direction="Client"/>
+  <command en_name="GC_SHOP_JOIN" cn_name="返回" value="7002" direction="Server">
+    <param name="price" type="int" size="4" remark="">宝箱价格/钻石</param>
+    <param name="discount" type="short" size="2" remark="">多少个开始折扣</param>
+    <param name="rate" type="float" size="4" remark="">折扣比率</param>
+    <param name="info" type="String" size="40" remark="">提示信息</param>
+    <param name="max" type="int" size="4" remark="">钻石单次购买上线</param>
+  </command>
+  <command en_name="CG_SHOP_CURRENCY" cn_name="请求" value="7003" direction="Client"/>
+  <command en_name="GC_SHOP_CURRENCY" cn_name="返回" value="7004" direction="Server">
+    <param name="goodsList" type="listGoods" size="2" remark="" text="商品列表">
+      <param name="goodsId" type="int" size="4" remark="">商品id</param>
+      <param name="icon" type="int" size="4" remark="">购买物品图标</param>
+      <param name="buyType" type="byte" size="1" remark="">购买获得的类型 1：金币2：技能碎片3：技能 4：将军</param>
+      <param name="buyCount" type="int" size="4" remark="">购买获取的数量</param>
+      <param name="info" type="String" size="20" remark="">优惠的消息</param>
+      <param name="consumeType" type="byte" size="1" remark="">购买消耗的类型 1：金币2：技能碎片3：技能 4：将军</param>
+      <param name="consumeCount" type="int" size="4" remark="">购买消耗的数量</param>
+    </param>
+  </command>
+  <command en_name="CG_SHOP_OPEN_CHEST" cn_name="请求" value="7005" direction="Client">
+    <param name="chestNum" type="int" size="4" remark="">开启宝箱数量</param>
+  </command>
+  <command en_name="GC_SHOP_OPEN_CHEST" cn_name="返回" value="7006" direction="Server">
+    <param name="chestAwardList" type="listChestAward" size="2" remark="" text="宝箱奖励物品列表">
+      <param name="goodsId" type="int" size="4" remark="">奖励物品id</param>
+      <param name="icon" type="int" size="4" remark="">奖励物品图标</param>
+      <param name="type" type="byte" size="1" remark="">奖励获得的类型 1：金币2：技能碎片3：技能 4：将军</param>
+      <param name="num" type="int" size="4" remark="">奖励的数量</param>
+    </param>
+  </command>
+  <command en_name="CG_SHOP_BUY" cn_name="请求" value="7007" direction="Client">
+    <param name="goodsId" type="int" size="4" remark="">购买商品id</param>
+  </command>
+  <command en_name="GC_SHOP_BUY" cn_name="返回" value="7008" direction="Server">
+    <param name="goodsId" type="int" size="4" remark="">购买商品id</param>
+  </command>
+  <command en_name="CG_SHOP_BUY_SUCCESS" cn_name="请求" value="7009" direction="Client">
+    <param name="playerId" type="long" size="8" remark="">玩家id</param>
+    <param name="goodsId" type="int" size="4" remark="">购买商品id</param>
+  </command>
+  <command en_name="GC_SHOP_BUY_SUCCESS" cn_name="返回" value="7010" direction="Server">
+    <param name="goodsId" type="int" size="4" remark="">购买商品id</param>
+  </command>
+  <command en_name="CG_SHOP_BUY_FAILED" cn_name="请求" value="7011" direction="Client">
+    <param name="playerId" type="long" size="8" remark="">玩家id</param>
+    <param name="goodsId" type="int" size="4" remark="">购买商品id</param>
+  </command>
+  <command en_name="GC_SHOP_BUY_FAILED" cn_name="返回" value="7012" direction="Server">
+    <param name="goodsId" type="int" size="4" remark="">购买商品id</param>
+  </command>
+</model>

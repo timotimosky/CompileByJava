@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<model name="ACHIEVEMENTMODEL" as_class="AchievementProxy" value="2016" desc="军衔、成就模块">
+  <command en_name="CG_ACHIEVEMENT" cn_name="请求" value="6801" direction="Client"/>
+  <command en_name="GC_ACHIEVEMENT" cn_name="返回" value="6802" direction="Server">
+    <param name="rankList" type="listRank" size="2" remark="" text="玩家当前勋章列表">
+      <param name="achieveModelId" type="int" size="4" remark="">勋章、成就原型id</param>
+    </param>
+    <param name="achieveList" type="listAchieve" size="2" remark="" text="所有成就列表">
+      <param name="achieveModelId" type="int" size="4" remark="">成就id</param>
+      <param name="currentNum" type="int" size="4" remark="">当前进度</param>
+      <param name="reachNum" type="int" size="4" remark="">成就达成目标</param>
+      <param name="getState" type="byte" size="1" remark="">1，已获取，2可获取，3不可获取</param>
+    </param>
+  </command>
+  <command en_name="CG_REPLACE_ACHIEVEMENT" cn_name="请求" value="6803" direction="Client">
+    <param name="positionId" type="int" size="4" remark="">要替换的位置</param>
+    <param name="achieveModelId" type="int" size="4" remark="">军衔或、成就原型id</param>
+  </command>
+  <command en_name="GC_REPLACE_ACHIEVEMENT" cn_name="返回" value="6804" direction="Server">
+    <param name="rankList" type="listRank" size="2" remark="" text="玩家当前勋章列表">
+      <param name="achieveModelId" type="int" size="4" remark="">军衔或、成就原型id</param>
+    </param>
+  </command>
+  <command en_name="GC_UPDATE_ACHIEVEMENT" cn_name="推送" value="6805" direction="Server">
+    <param name="achieveList" type="listAchieve" size="2" remark="" text="更新的成就">
+      <param name="achieveModelId" type="int" size="4" remark="">成就id</param>
+      <param name="currentNum" type="int" size="4" remark="">当前进度</param>
+      <param name="reachNum" type="int" size="4" remark="">成就达成目标</param>
+      <param name="getState" type="byte" size="1" remark="">1，已获取，2可获取，3不可获取</param>
+    </param>
+  </command>
+</model>

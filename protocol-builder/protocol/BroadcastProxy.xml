@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<model name="BROADCASTMODEL" as_class="BroadcastProxy" value="2012" desc="播报模块">
+  <command en_name="CG_BROADCAST_LOCK" cn_name="请求" value="6556" direction="Client">
+    <param name="bcGuid" type="int" size="4" remark="">播报主键ID</param>
+  </command>
+  <command en_name="GC_BROADCAST_LOCK" cn_name="返回" value="6557" direction="Server">
+    <param name="bcGuid" type="int" size="4" remark="">播报主键ID</param>
+  </command>
+  <command en_name="CG_BROADCAST_LIST" cn_name="请求" value="6558" direction="Client"/>
+  <command en_name="GC_BROADCAST_LIST" cn_name="返回" value="6559" direction="Server">
+    <param name="broadcastList" type="listBroadcast" size="2" remark="" text="锁定播报集合">
+      <param name="bcGuid" type="int" size="4" remark="">播报主键ID</param>
+      <param name="rankModelId" type="int" size="4" remark="">军衔Model ID</param>
+      <param name="playerId" type="long" size="8" remark="">角色ID</param>
+      <param name="playerName" type="string" size="40" remark="">角色名称</param>
+      <param name="country" type="byte" size="1" remark="">国籍</param>
+      <param name="generalModelId" type="int" size="4" remark="">出战主将原型ID</param>
+      <param name="broadcastContent" type="string" size="70" remark="">播报内容</param>
+      <param name="createTime" type="long" size="8" remark="">创建时间</param>
+    </param>
+  </command>
+  <command en_name="CG_BROADCAST_DISPOSE_LOCK" cn_name="请求" value="6560" direction="Client">
+    <param name="bcGuid" type="int" size="4" remark="">播报主键ID</param>
+    <param name="bcType" type="byte" size="1" remark="">评价类型</param>
+  </command>
+  <command en_name="GC_BROADCAST_DISPOSE_LOCK" cn_name="返回" value="6561" direction="Server">
+    <param name="bcGuid" type="int" size="4" remark="">播报主键ID</param>
+    <param name="diamond" type="int" size="4" remark="">钻石数量</param>
+  </command>
+</model>

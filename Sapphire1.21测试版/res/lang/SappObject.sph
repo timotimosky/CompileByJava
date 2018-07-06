@@ -1,0 +1,66 @@
+#这是一个基本的对象类，这个类应该为所有类的父类，否则可能会发生错误。
+native class SappObject{
+	
+	def toString(){
+		return N_toString(this);
+	}
+	native [SappString]N_toString(obj<?SappObject);
+	#返回对象的toString方法。
+	
+	def hashCode(){
+		return N_hashCode(this);
+	}
+	native [SappInteger]N_hashCode(obj<?SappObject);
+	#返回对象的hashCode值。
+	
+	
+	def ==(one){
+	    return hashCode()==one.hashCode();
+	}
+	#比较两个对象的hashCode值，以判断是否是同一个对象。
+	
+	def new(){}
+	#new方法，SappObject中的一个空的方法，每个对象都应该有这个方法。
+	
+	def type(){
+		return N_type(this);
+	}
+	native [SappString]N_type(obj<?SappObject);
+	#返回类型字符串
+	
+	def haveMethod(name){
+		return N_haveMethod(this,name);
+	}
+	native [SappBoolean]N_haveMethod(obj<?SappObject,name<?SappString);
+	#检查这个对象是否有一个方法。
+	
+	def removeMethod(name){
+		N_removeMethod(this,name);
+	}
+	native N_removeMethod(obj<?SappObject,name<?SappString);
+	#移除一个方法。
+	
+	def addMethod(name<,isclass){
+		N_addMethod(this,name,isclass);
+	}
+	native N_addMethod(obj<?SappObject,name<?SappString,isclass<?SappBoolean);
+	#添加一个方法，后面是true就添加类对象方法，后面是false就添加单例方法
+	
+	def notify(){
+		N_notify(this);
+	}
+	native N_notify(obj<?SappObject);
+	#对应java-Object类的方法
+	
+	def notifyAll(){
+		N_notifyAll(this);
+	}
+	native N_notifyAll(obj<?SappObject);
+	
+	def wait(time){
+		N_wait(this,time);
+	}
+	native N_wait(obj<?SappObject,time<?SappInteger|SappNull);
+	#等待方法。
+	
+}
